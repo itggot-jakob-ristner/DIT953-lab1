@@ -73,12 +73,12 @@ abstract class Car implements Movable{
 
     @Override
     public void turnLeft() {
-
+        direction = Direction.turnLeft(direction);
     }
 
     @Override
     public void turnRight() {
-
+        direction = Direction.turnRight(direction);
     }
 
 

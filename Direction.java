@@ -1,16 +1,14 @@
 public enum Direction {
-    UP, RIGHT, LEFT, DOWN;
+    UP, LEFT, DOWN, RIGHT;
     public static Direction turnLeft(Direction direction) {
-        switch (direction) {
-            case UP:
-                return Direction.LEFT;
-            case LEFT:
-                return Direction.DOWN;
-            case DOWN:
-                return Direction.RIGHT;
-            case RIGHT:
-                return Direction.UP;
-        }
-        return null;
+        Direction[] directions = Direction.values();
+        int directionNum = (direction.ordinal()+1) % directions.length;
+        return directions[directionNum];
+    }
+
+    public static Direction turnRight(Direction direction) {
+        Direction[] directions = Direction.values();
+        int directionNum = (direction.ordinal() - 1) % directions.length;
+        return directions[directionNum];
     }
 }
