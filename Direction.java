@@ -8,7 +8,7 @@ public enum Direction {
 
     public static Direction turnRight(Direction direction) {
         Direction[] directions = Direction.values();
-        int directionNum = (direction.ordinal() - 1) % directions.length;
+        int directionNum = (direction.ordinal() - 1 + directions.length) % directions.length;
         return directions[directionNum];
     }
 }
