@@ -72,7 +72,7 @@ abstract class Car implements Movable{
     /**
      * @return The current speed of the car as a double
      */
-    private double getCurrentSpeed(){
+    public double getCurrentSpeed(){
         return currentSpeed;
     }
 
@@ -176,4 +176,15 @@ abstract class Car implements Movable{
      */
     public abstract double speedFactor();
 
+    public double getX() {
+        return pos.getX();
+    }
+
+    public double getY() {
+        return pos.getY();
+    }
+
+    public Direction getDirection() {
+        return direction;
+    }
 }

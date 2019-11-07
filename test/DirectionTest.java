@@ -4,13 +4,13 @@ import static org.junit.jupiter.api.Assertions.*;
 class DirectionTest {
 
     @Test
-    void CanCreateDirection() {
+    void canCreateDirection() {
         Direction d = Direction.UP;
         assertEquals(d, Direction.UP);
     }
 
     @Test
-    void CanTurnLeft() {
+    void canTurnLeft() {
         Direction d = Direction.UP;
         d = Direction.turnLeft(d);
         assertEquals(d, Direction.LEFT);
@@ -23,7 +23,7 @@ class DirectionTest {
     }
 
     @Test
-    void CanTurnRight() {
+    void canTurnRight() {
         Direction d = Direction.UP;
         d = Direction.turnRight(d);
         assertEquals(d, Direction.RIGHT);
