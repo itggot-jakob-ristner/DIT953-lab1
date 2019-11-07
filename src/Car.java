@@ -1,14 +1,51 @@
 import java.awt.*;
 
+/**
+ * A representation of a real life car
+ */
 abstract class Car implements Movable{
-    private int nrDoors; // Number of doors on the car
-    private double enginePower; // Engine power of the car
-    private double currentSpeed; // The current speed of the car
-    private Color color; // Color of the car
-    private String modelName; // The car model name
+
+    /**
+     * Number of doors on the car
+     */
+    private int nrDoors;
+
+    /**
+     * Engine power of the car
+     */
+    private double enginePower;
+
+    /**
+     * The current speed of the car
+     */
+    private double currentSpeed;
+
+    /**
+     * Color of the car
+     */
+    private Color color;
+
+    /**
+     * The car model name
+     */
+    private String modelName;
+
+    /**
+     * Where the car is located in the world represented as a 2D vector
+     */
     private Vector pos;
+
+    /**
+     * The direction of the car represented by an enum
+     */
     private Direction direction = Direction.UP;
 
+    /**
+     * @param nrDoors Number of doors of the car
+     * @param color The color of the car
+     * @param enginePower The power of the engine in the car
+     * @param modelName The name of the model
+     */
     public Car(int nrDoors, Color color, double enginePower, String modelName){
         this.nrDoors = nrDoors;
         this.color = color;
@@ -18,42 +55,76 @@ abstract class Car implements Movable{
         stopEngine();
     }
 
+    /**
+     * @return The number of doors of the car as an int
+     */
     public int getNrDoors(){
         return nrDoors;
     }
 
+    /**
+     * @return The power of the engine that is in the car as a double
+     */
     protected double getEnginePower(){
         return enginePower;
     }
 
+    /**
+     * @return The current speed of the car as a double
+     */
     private double getCurrentSpeed(){
         return currentSpeed;
     }
 
+    /**
+     * Returns the color of the car
+     * @return The color of the car represented in a Color object
+     */
     public Color getColor(){
         return color;
     }
 
+    /**
+     * Sets the color of the car to a new color
+     * @param clr The new color of the car represented in a Color object
+     */
     public void setColor(Color clr){
         color = clr;
     }
 
+    /**
+     * Starts the engine of the car
+     */
     public void startEngine(){
         currentSpeed = 0.1;
     }
 
+    /**
+     * Stops the engine of the car
+     */
     private void stopEngine(){
         currentSpeed = 0;
     }
 
+    /**
+     * Increases the speed at which lobsters die
+     * @param amount The amount, represented as a double, at which the speed of the car should be increased
+     */
     private void incrementSpeed(double amount){
         currentSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount,enginePower);
     }
 
+    /**
+     * Decreases the speed at which lobsters die
+     * @param amount The amount, represented as a double, at which the speed of the car should be decreased
+     */
     private void decrementSpeed(double amount){
         currentSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount,0);
     }
 
+    /**
+     * Moves the car in the direction of which the car is represented to be currently in (by the direction variable)
+     */
     @Override
     public void move() {
         switch (direction) {
@@ -71,11 +142,17 @@ abstract class Car implements Movable{
         }
     }
 
+    /**
+     * Turns the car left, relative to the direction of the car
+     */
     @Override
     public void turnLeft() {
         direction = Direction.turnLeft(direction);
     }
 
+    /**
+     * Turns the car right, relative to the direction of the car
+     */
     @Override
     public void turnRight() {
         direction = Direction.turnRight(direction);
@@ -93,6 +170,10 @@ abstract class Car implements Movable{
         decrementSpeed(amount);
     }
 
+    /**
+     * Jag vet inte vad jag ska skriva här
+     * @return Speed factor of the car
+     */
     public abstract double speedFactor();
 
 }
