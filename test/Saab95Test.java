@@ -56,4 +56,14 @@ public class Saab95Test {
         s.move();
         assertTrue(s.getY() > y);
     }
+
+    @Test
+    void canChangeTurbo() {
+        Saab95 s = new Saab95();
+        s.setTurboOff();
+        double noTurboSpeedFactor = s.speedFactor();
+        s.setTurboOn();
+        double turboSpeedFactor = s.speedFactor();
+        assertTrue(turboSpeedFactor > noTurboSpeedFactor);
+    }
 }
