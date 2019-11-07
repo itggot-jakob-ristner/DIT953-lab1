@@ -165,7 +165,9 @@ abstract class Car implements Movable{
         incrementSpeed(amount);
     }
 
+    // TODO: fix todos
     // TODO fix this method according to lab pm
+    // TODO: Add javadoc
     public void brake(double amount){
         decrementSpeed(amount);
     }
@@ -176,14 +178,26 @@ abstract class Car implements Movable{
      */
     public abstract double speedFactor();
 
+    /**
+     * Returns the x coordinate of the car
+     * @return the x-value of the vector that represents the position of the car
+     */
     public double getX() {
         return pos.getX();
     }
 
+    /**
+     * Returns the y coordinate of the car
+     * @return the y-value of the vector that represents the position of the car
+     */
     public double getY() {
         return pos.getY();
     }
 
+    /**
+     * Returns the direction of the car at which it is headed, represented as an enum
+     * @return the direction of the car represented as an enum
+     */
     public Direction getDirection() {
         return direction;
     }
