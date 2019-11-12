@@ -95,14 +95,14 @@ abstract class Car implements Movable{
     /**
      * Starts the engine of the car
      */
-    public void startEngine(){
+    public void startEngine() {
         currentSpeed = 0.1;
     }
 
     /**
      * Stops the engine of the car
      */
-    private void stopEngine(){
+    private void stopEngine() {
         currentSpeed = 0;
     }
 
@@ -110,16 +110,18 @@ abstract class Car implements Movable{
      * Increases the speed at which lobsters die
      * @param amount The amount, represented as a double, at which the speed of the car should be increased
      */
-    private void incrementSpeed(double amount){
-        currentSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount,enginePower);
+    private void incrementSpeed(double amount) {
+        if (amount < 1) return;
+        currentSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount, enginePower);
     }
 
     /**
      * Decreases the speed at which lobsters die
      * @param amount The amount, represented as a double, at which the speed of the car should be decreased
      */
-    private void decrementSpeed(double amount){
-        currentSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount,0);
+    private void decrementSpeed(double amount) {
+        if (amount < 1) return;
+        currentSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount, 0);
     }
 
     /**
