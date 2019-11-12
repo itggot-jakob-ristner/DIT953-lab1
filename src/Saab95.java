@@ -1,23 +1,42 @@
 import java.awt.*;
 
-public class Saab95 extends Car{
+/**
+ * The class for the Car Saab95
+ */
+public class Saab95 extends Car {
 
+    /**
+     * Boolean variable representing if turbo is enabled
+     */
     private boolean turboOn;
 
-    public Saab95(){
+    /**
+     * The constructor for Saab95
+     */
+    public Saab95() {
         super(2, Color.red, 125, "Saab95");
 	    turboOn = false;
     }
-    
-    public void setTurboOn(){
+
+    /**
+     * Method that enabled the turbo variable
+     */
+    public void setTurboOn() {
 	    turboOn = true;
     }
 
-    public void setTurboOff(){
+    /**
+     * Method that disables the turbo variable
+     */
+    public void setTurboOff() {
 	    turboOn = false;
     }
 
-    public double speedFactor(){
+    /**
+     * Method that calculates and returns the speedFactor of the car.
+     * @return the speedFactor of the car.
+     */
+    public double speedFactor() {
         double turbo = 1;
         if(turboOn) turbo = 1.3;
         return getEnginePower() * 0.01 * turbo;
