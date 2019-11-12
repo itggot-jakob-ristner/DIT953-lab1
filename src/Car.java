@@ -111,7 +111,6 @@ abstract class Car implements Movable{
      * @param amount The amount, represented as a double, at which the speed of the car should be increased
      */
     private void incrementSpeed(double amount) {
-        if (amount < 1) return;
         currentSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount, enginePower);
     }
 
@@ -120,7 +119,6 @@ abstract class Car implements Movable{
      * @param amount The amount, represented as a double, at which the speed of the car should be decreased
      */
     private void decrementSpeed(double amount) {
-        if (amount < 1) return;
         currentSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount, 0);
     }
 
