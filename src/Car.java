@@ -159,17 +159,24 @@ abstract class Car implements Movable{
     }
 
 
-
-    // TODO fix this method according to lab pm
+    /**
+     * Gases the car
+     * @param amount with the given amount
+     */
     public void gas(double amount){
-        incrementSpeed(amount);
+        incrementSpeed(Math.max(0, Math.min(1, amount)));
     }
 
     // TODO: fix todos
     // TODO fix this method according to lab pm
     // TODO: Add javadoc
+
+    /**
+     * Breaks the car
+     * @param amount with the amount given
+     */
     public void brake(double amount){
-        decrementSpeed(amount);
+        decrementSpeed(Math.max(0, Math.min(1, amount)));
     }
 
     /**
