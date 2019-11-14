@@ -167,10 +167,6 @@ abstract class Car implements Movable{
         incrementSpeed(Math.max(0, Math.min(1, amount)));
     }
 
-    // TODO: fix todos
-    // TODO fix this method according to lab pm
-    // TODO: Add javadoc
-
     /**
      * Breaks the car
      * @param amount with the amount given
