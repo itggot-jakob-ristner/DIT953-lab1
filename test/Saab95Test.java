@@ -24,12 +24,13 @@ public class Saab95Test {
     @Test
     void canChangeSpeed() {
         Saab95 s = new Saab95();
+        s.startEngine();
         double startSpeed = s.getCurrentSpeed();
-        s.gas(5);
+        s.gas(0.5);
         double gasSpeed = s.getCurrentSpeed();
-        s.brake(5);
+        s.brake(0.5);
         double breakSpeed = s.getCurrentSpeed();
-        assertEquals(startSpeed, 0);
+        assertEquals(startSpeed, 0.1);
         assertTrue(startSpeed < gasSpeed);
         assertTrue(gasSpeed > breakSpeed);
     }

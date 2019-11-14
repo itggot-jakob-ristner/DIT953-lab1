@@ -164,6 +164,7 @@ abstract class Car implements Movable{
      * @param amount with the given amount
      */
     public void gas(double amount){
+        if (currentSpeed == 0) return;
         incrementSpeed(Math.max(0, Math.min(1, amount)));
     }
 
