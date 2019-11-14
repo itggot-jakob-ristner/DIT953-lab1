@@ -180,7 +180,7 @@ abstract class Car implements Movable{
     }
 
     /**
-     * Jag vet inte vad jag ska skriva här
+     * Getter for current speed factor
      * @return Speed factor of the car
      */
     public abstract double speedFactor();
