@@ -6,7 +6,7 @@ import java.awt.*;
  * isch&sa=X&ved=0ahUKEwiCgJKem9jlAhXhMewKHXmnCl8Q_AUIEigB&biw=1536&bih=722
  * represented as a Java class
  */
-public class Volvo240 extends Car{
+public class Volvo240 extends MotorisedVehicle {
 
     /**
      * Value representing how trimmed the Volvo240 car is
@@ -17,7 +17,7 @@ public class Volvo240 extends Car{
      * Creates Volvo240
      */
     public Volvo240(){
-        super(4, Color.black, 100, "Volvo240");
+        super(4, Color.black, 100, "Volvo240", 1200);
     }
 
     /**

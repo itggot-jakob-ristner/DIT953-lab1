@@ -3,7 +3,7 @@ import java.awt.*;
 /**
  * A representation of a real life car
  */
-abstract class Car implements Movable{
+abstract class MotorisedVehicle implements Movable {
 
     /**
      * Number of doors on the car
@@ -40,17 +40,20 @@ abstract class Car implements Movable{
      */
     private Direction direction = Direction.UP;
 
+    private int weight;
+
     /**
      * @param nrDoors Number of doors of the car
      * @param color The color of the car
      * @param enginePower The power of the engine in the car
      * @param modelName The name of the model
      */
-    public Car(int nrDoors, Color color, double enginePower, String modelName){
+    public MotorisedVehicle(int nrDoors, Color color, double enginePower, String modelName, int weight){
         this.nrDoors = nrDoors;
         this.color = color;
         this.enginePower = enginePower;
         this.modelName = modelName;
+        this.weight = weight;
         pos = new Vector();
         stopEngine();
     }
@@ -204,5 +207,9 @@ abstract class Car implements Movable{
      */
     public Direction getDirection() {
         return direction;
+    }
+
+    public int getWeight() {
+        return weight;
     }
 }

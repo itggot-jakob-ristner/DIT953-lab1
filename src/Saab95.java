@@ -3,7 +3,7 @@ import java.awt.*;
 /**
  * The class for the Car Saab95
  */
-public class Saab95 extends Car {
+public class Saab95 extends MotorisedVehicle {
 
     /**
      * Boolean variable representing if turbo is enabled
@@ -14,7 +14,7 @@ public class Saab95 extends Car {
      * The constructor for Saab95
      */
     public Saab95() {
-        super(2, Color.red, 125, "Saab95");
+        super(2, Color.red, 125, "Saab95", 1000);
 	    turboOn = false;
     }
 
