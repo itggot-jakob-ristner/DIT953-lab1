@@ -2,16 +2,14 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CarTransportTruck extends MotorisedVehicle implements Flatbed {
+public class CarTransportTruck extends TransportVehicle {
 
     private final int MAX_VEHICLE_WEIGHT = 3000;
     private final int VEHICLE_SLOTS = 3;
     private List<MotorisedVehicle> cargo = new ArrayList<>();
-    private Flatbed flatbed;
 
     public CarTransportTruck() {
-        super(2, Color.yellow, 50, "Lång tradare", 12000);
-        flatbed = new DiscreteFlatbed();
+        super(2, Color.yellow, 50, "Lång tradare", 12000, new DiscreteFlatbed());
     }
 
     @Override
@@ -27,18 +25,4 @@ public class CarTransportTruck extends MotorisedVehicle implements Flatbed {
         return false;
     }
 
-    @Override
-    public void raiseFlatbed() {
-        flatbed.raiseFlatbed();
-    }
-
-    @Override
-    public void lowerFlatbed() {
-        flatbed.lowerFlatbed();
-    }
-
-    @Override
-    public boolean isDown() {
-        return flatbed.isDown();
-    }
 }

@@ -3,12 +3,12 @@ public class DiscreteFlatbed implements Flatbed {
     private boolean isDown = true;
 
     @Override
-    public void raiseFlatbed() {
+    public void raise() {
         isDown = false;
     }
 
     @Override
-    public void lowerFlatbed() {
+    public void lower() {
         isDown = true;
     }
 
@@ -16,4 +16,11 @@ public class DiscreteFlatbed implements Flatbed {
     public boolean isDown() {
         return isDown;
     }
+
+    @Override
+    public boolean isUp() {
+        return !isDown;
+    }
+
+
 }

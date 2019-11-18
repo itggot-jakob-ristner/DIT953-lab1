@@ -8,7 +8,7 @@ public class ScaniaTest {
     void canNotIncreaseAngleWhileMoving() {
         Scania s = new Scania();
         s.startEngine();
-        s.raiseFlatbed();
+        s.raise();
         assertTrue(s.isDown());
     }
 }

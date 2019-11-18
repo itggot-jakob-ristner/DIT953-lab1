@@ -25,17 +25,22 @@ public class ContinuousFlatbed implements Flatbed {
     }
 
     @Override
-    public void raiseFlatbed() {
+    public void raise() {
         angle = Math.min(angle + ANGLE_SPEED, MAX_ANGLE);
     }
 
     @Override
-    public void lowerFlatbed() {
+    public void lower() {
         angle = Math.max(angle + ANGLE_SPEED, MIN_ANGLE);
     }
 
     @Override
     public boolean isDown() {
         return angle == MIN_ANGLE;
+    }
+
+    @Override
+    public boolean isUp() {
+        return angle == MAX_ANGLE;
     }
 }
