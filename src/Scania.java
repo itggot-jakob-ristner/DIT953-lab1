@@ -9,7 +9,7 @@ public class Scania extends MotorisedVehicle implements Raisable{
 
     public Scania() {
         super(2, Color.blue, 100, "Scania", 6000);
-        flatbed = new Flatbed(5);
+        flatbed = new ContinuousFlatbed(5);
     }
 
     @Override
@@ -33,12 +33,6 @@ public class Scania extends MotorisedVehicle implements Raisable{
         if (!flatbed.isDown()) return;
         super.startEngine();
     }
-
-    @Override
-    public double getAngle() {
-        return flatbed.getAngle();
-    }
-
 
     @Override
     public boolean isDown() {

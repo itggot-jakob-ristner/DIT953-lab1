@@ -3,7 +3,5 @@ public interface Raisable {
 
     void lowerFlatbed();
 
-    double getAngle();
-
     boolean isDown();
 }
