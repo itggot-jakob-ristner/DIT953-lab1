@@ -1,12 +1,13 @@
 import java.awt.*;
-import java.util.ArrayList;
+import java.util.*;
 import java.util.List;
 
 public class CarTransportTruck extends TransportVehicle {
 
+    private static final double PICKUP_RANGE = 5;
     private final int MAX_VEHICLE_WEIGHT = 3000;
     private final int VEHICLE_SLOTS = 3;
-    private List<MotorisedVehicle> cargo = new ArrayList<>();
+    private Deque<MotorisedVehicle> cargo = new LinkedList<>();
 
     public CarTransportTruck() {
         super(2, Color.yellow, 50, "Lång tradare", 12000, new DiscreteFlatbed());
@@ -18,11 +19,29 @@ public class CarTransportTruck extends TransportVehicle {
     }
 
     public boolean tryAddVehicle(MotorisedVehicle vehicle) {
-        if (cargo.size() < VEHICLE_SLOTS && vehicle.getWeight() < MAX_VEHICLE_WEIGHT) {
-            cargo.add(vehicle);
-            return true;
+        if (!isFlatbedActivated()) return false;
+        if (pos.distanceTo(vehicle.pos) < PICKUP_RANGE) {
+            if (cargo.size() < VEHICLE_SLOTS && vehicle.getWeight() < MAX_VEHICLE_WEIGHT) {
+                cargo.push(vehicle);
+                return true;
+            }
         }
         return false;
     }
 
+    @Override
+    public void move() {
+        super.move();
+        for (MotorisedVehicle v : cargo) {
+            v.setPos(pos.getX(), pos.getY());
+        }
+    }
+
+    public MotorisedVehicle tryRemoveVehicle() {
+        if (!isFlatbedActivated()) return null;
+        if (cargo.size() == 0) return null;
+        MotorisedVehicle v = cargo.pop();
+        v.setPos(pos.getX(), pos.getY() - 1);
+        return v;
+    }
 }

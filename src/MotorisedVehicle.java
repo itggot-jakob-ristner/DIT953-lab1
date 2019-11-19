@@ -33,7 +33,7 @@ abstract class MotorisedVehicle implements Movable {
     /**
      * Where the car is located in the world represented as a 2D vector
      */
-    private Vector pos;
+    protected Vector pos;
 
     /**
      * The direction of the car represented by an enum
@@ -211,5 +211,9 @@ abstract class MotorisedVehicle implements Movable {
 
     public int getWeight() {
         return weight;
+    }
+
+    public void setPos(double x, double y) {
+        pos.setPos(x, y);
     }
 }

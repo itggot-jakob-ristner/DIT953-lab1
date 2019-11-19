@@ -86,4 +86,13 @@ public class Vector {
     public void setY(double y) {
         this.y = y;
     }
+
+    public void setPos(double x, double y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    public double distanceTo(Vector v) {
+        return Math.hypot(v.x - x, v.y - y);
+    }
 }
