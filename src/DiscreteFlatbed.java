@@ -1,25 +1,25 @@
 public class DiscreteFlatbed implements Flatbed {
 
-    private boolean isDown = true;
+    private boolean isDeactivated = true;
 
     @Override
-    public void raise() {
-        isDown = false;
+    public void activate() {
+        isDeactivated = false;
     }
 
     @Override
-    public void lower() {
-        isDown = true;
+    public void deActivate() {
+        isDeactivated = true;
     }
 
     @Override
-    public boolean isDown() {
-        return isDown;
+    public boolean isDeactivated() {
+        return isDeactivated;
     }
 
     @Override
-    public boolean isUp() {
-        return !isDown;
+    public boolean isActivated() {
+        return !isDeactivated;
     }
 
 

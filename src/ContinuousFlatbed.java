@@ -3,12 +3,12 @@ public class ContinuousFlatbed implements Flatbed {
     /**
      * The highest possible flatbed angle
      */
-    public static final double MAX_ANGLE = 70;
+    public static final double ACTIVATION_ANGLE = 70;
 
     /**
      * The lowest possible flatbed angle
      */
-    public static final double MIN_ANGLE = 0;
+    public static final double DEACTIVATION_ANGLE = 0;
 
     /**
      * The speed at which the flatbed changes angle
@@ -25,22 +25,22 @@ public class ContinuousFlatbed implements Flatbed {
     }
 
     @Override
-    public void raise() {
-        angle = Math.min(angle + ANGLE_SPEED, MAX_ANGLE);
+    public void activate() {
+        angle = Math.min(angle + ANGLE_SPEED, ACTIVATION_ANGLE);
     }
 
     @Override
-    public void lower() {
-        angle = Math.max(angle + ANGLE_SPEED, MIN_ANGLE);
+    public void deActivate() {
+        angle = Math.max(angle + ANGLE_SPEED, DEACTIVATION_ANGLE);
     }
 
     @Override
-    public boolean isDown() {
-        return angle == MIN_ANGLE;
+    public boolean isDeactivated() {
+        return angle == DEACTIVATION_ANGLE;
     }
 
     @Override
-    public boolean isUp() {
-        return angle == MAX_ANGLE;
+    public boolean isActivated() {
+        return angle == ACTIVATION_ANGLE;
     }
 }

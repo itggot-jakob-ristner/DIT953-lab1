@@ -1,9 +1,9 @@
 interface Flatbed {
-    void raise();
+    void activate();
 
-    void lower();
+    void deActivate();
 
-    boolean isDown();
+    boolean isDeactivated();
 
-    boolean isUp();
+    boolean isActivated();
 }

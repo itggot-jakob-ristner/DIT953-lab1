@@ -9,24 +9,24 @@ public abstract class TransportVehicle extends MotorisedVehicle {
 
     @Override
     public void startEngine() {
-        if (!flatbed.isDown()) return;
+        if (flatbed.isActivated()) return;
         super.startEngine();
     }
 
-    public void raise() {
+    public void activateFlatbed() {
         if (getCurrentSpeed() > 0) return;
-        flatbed.raise();
+        flatbed.activate();
     }
 
-    public void lower() {
-        flatbed.lower();
+    public void deActivateFlatbed() {
+        flatbed.deActivate();
     }
 
-    public boolean isDown() {
-        return flatbed.isDown();
+    public boolean isFlatbedDeactivated() {
+        return flatbed.isDeactivated();
     }
 
-    public boolean isUp() {
-        return flatbed.isUp();
+    public boolean isFlatbedActivated() {
+        return flatbed.isActivated();
     }
 }
