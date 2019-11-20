@@ -10,6 +10,9 @@ import java.util.Deque;
 import java.util.LinkedList;
 import java.util.Queue;
 
+/**
+ * A class representing a Ferry, meaning a boat that can carry Motorised Vehicles
+ */
 public class Ferry extends TransportVehicle implements Transporter<MotorisedVehicle> {
 
     private Queue<MotorisedVehicle> cargo = new ArrayDeque<>();

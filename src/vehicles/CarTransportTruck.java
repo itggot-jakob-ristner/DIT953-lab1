@@ -6,6 +6,9 @@ import vehicleparts.DiscreteFlatbed;
 import java.awt.*;
 import java.util.*;
 
+/**
+ * A class representing a truck that can transport other motorised vehicles
+ */
 public class CarTransportTruck extends TransportVehicle implements Transporter<MotorisedVehicle> {
 
     private Deque<MotorisedVehicle> cargo = new ArrayDeque<>();
@@ -19,6 +22,11 @@ public class CarTransportTruck extends TransportVehicle implements Transporter<M
         return getEnginePower() * 0.01;
     }
 
+    /**
+     * Will try to load this CarTransportTruck with a MotorisedVehicle. Returns a boolean stating if it's successful
+     * @param vehicle The vehicle to add
+     * @return True if successful, false otherwise.
+     */
     @Override
     public boolean tryLoad(MotorisedVehicle vehicle) {
         if (!isFlatbedActivated()) return false;
@@ -31,6 +39,9 @@ public class CarTransportTruck extends TransportVehicle implements Transporter<M
         return false;
     }
 
+    /**
+     * Moves the truck and updates the position of all vehicles in the cargo to be the same as this truck.
+     */
     @Override
     public void move() {
         super.move();
@@ -38,6 +49,11 @@ public class CarTransportTruck extends TransportVehicle implements Transporter<M
             v.setPos(pos.getX(), pos.getY());
         }
     }
+
+    /**
+     * Tries to unload a Vehicle
+     * @return The Vehicle at the top of the stack, or if the stack is emtpy, null
+     */
     @Override
     public MotorisedVehicle tryUnload() {
         if (!isFlatbedActivated()) return null;

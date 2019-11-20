@@ -5,6 +5,10 @@ import vehicles.MotorisedVehicle;
 import java.util.ArrayDeque;
 import java.util.Queue;
 
+/**
+ * A workshop that can add and remove vehicles
+ * @param <V> The type of vehicle that this Workshop accepts
+ */
 public class Workshop<V extends MotorisedVehicle> {
 
     private final int MAX_VEHICLES;
