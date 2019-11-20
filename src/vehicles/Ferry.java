@@ -18,6 +18,7 @@ public class Ferry extends TransportVehicle implements Transporter<MotorisedVehi
         super(1, Color.white, 50, "Stena", 1000000, new DiscreteFlatbed());
     }
 
+    @Override
     public void move() {
         super.move();
         for (MotorisedVehicle v : cargo) {
