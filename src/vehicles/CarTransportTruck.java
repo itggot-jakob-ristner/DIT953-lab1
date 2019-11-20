@@ -47,6 +47,7 @@ public class CarTransportTruck extends TransportVehicle implements Transporter<M
         super.move();
         for (MotorisedVehicle v : cargo) {
             v.setPos(pos.getX(), pos.getY());
+            v.setDirection(getDirection());
         }
     }
 

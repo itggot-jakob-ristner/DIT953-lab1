@@ -224,4 +224,8 @@ public abstract class MotorisedVehicle implements Movable, Transportable {
     public void setPos(double x, double y) {
         pos.setPos(x, y);
     }
+
+    public void setDirection(Direction direction) {
+        this.direction = direction;
+    }
 }

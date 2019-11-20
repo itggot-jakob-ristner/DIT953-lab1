@@ -26,6 +26,7 @@ public class Ferry extends TransportVehicle implements Transporter<MotorisedVehi
         super.move();
         for (MotorisedVehicle v : cargo) {
             v.setPos(pos.getX(), pos.getY());
+            v.setDirection(getDirection());
         }
     }
 

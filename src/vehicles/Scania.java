@@ -1,5 +1,8 @@
 package vehicles;
 
+import behaviours.Transportable;
+import behaviours.Transporter;
+import com.sun.jdi.connect.Transport;
 import vehicleparts.ContinuousFlatbed;
 
 import java.awt.*;
