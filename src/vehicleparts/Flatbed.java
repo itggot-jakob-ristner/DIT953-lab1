@@ -1,4 +1,6 @@
-interface Flatbed {
+package vehicleparts;
+
+public interface Flatbed {
     void activate();
 
     void deActivate();

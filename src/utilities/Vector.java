@@ -1,3 +1,5 @@
+package utilities;
+
 /**
  * A 2d vector represented by doubles
  */
@@ -23,7 +25,7 @@ public class Vector {
     }
 
     /**
-     * Constructor without parameters for Vector
+     * Constructor without parameters for utilities.Vector
      */
     public Vector() {
         x = 0;

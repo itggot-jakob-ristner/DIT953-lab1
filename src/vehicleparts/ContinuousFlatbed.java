@@ -1,3 +1,5 @@
+package vehicleparts;
+
 public class ContinuousFlatbed implements Flatbed {
 
     /**

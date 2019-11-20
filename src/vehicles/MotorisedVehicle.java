@@ -1,3 +1,9 @@
+package vehicles;
+
+import behaviours.Movable;
+import utilities.Direction;
+import utilities.Vector;
+
 import java.awt.*;
 
 /**
@@ -68,7 +74,7 @@ abstract class MotorisedVehicle implements Movable {
     /**
      * @return The power of the engine that is in the car as a double
      */
-    protected double getEnginePower(){
+    public double getEnginePower(){
         return enginePower;
     }
 

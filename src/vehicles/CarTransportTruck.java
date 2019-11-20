@@ -1,6 +1,9 @@
+package vehicles;
+
+import vehicleparts.DiscreteFlatbed;
+
 import java.awt.*;
 import java.util.*;
-import java.util.List;
 
 public class CarTransportTruck extends TransportVehicle {
 

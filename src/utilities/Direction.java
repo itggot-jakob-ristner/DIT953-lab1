@@ -1,3 +1,5 @@
+package utilities;
+
 /**
  * An enum representing the direction of something
  */

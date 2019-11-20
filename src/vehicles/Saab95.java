@@ -1,7 +1,9 @@
+package vehicles;
+
 import java.awt.*;
 
 /**
- * The class for the Car Saab95
+ * The class for the Car vehicles.Saab95
  */
 public class Saab95 extends MotorisedVehicle {
 
@@ -11,10 +13,10 @@ public class Saab95 extends MotorisedVehicle {
     private boolean turboOn;
 
     /**
-     * The constructor for Saab95
+     * The constructor for vehicles.Saab95
      */
     public Saab95() {
-        super(2, Color.red, 125, "Saab95", 1000);
+        super(2, Color.red, 125, "vehicles.Saab95", 1000);
 	    turboOn = false;
     }
 

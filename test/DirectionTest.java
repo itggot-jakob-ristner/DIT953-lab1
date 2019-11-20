@@ -1,4 +1,5 @@
 import org.junit.jupiter.api.Test;
+import utilities.Direction;
 
 import static junit.framework.TestCase.assertEquals;
 

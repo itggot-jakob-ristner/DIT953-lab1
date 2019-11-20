@@ -1,3 +1,7 @@
+package vehicles;
+
+import vehicleparts.Flatbed;
+
 import java.awt.*;
 
 public abstract class TransportVehicle extends MotorisedVehicle {

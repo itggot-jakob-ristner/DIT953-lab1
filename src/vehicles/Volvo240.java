@@ -1,3 +1,5 @@
+package vehicles;
+
 import java.awt.*;
 
 /**
@@ -9,15 +11,15 @@ import java.awt.*;
 public class Volvo240 extends MotorisedVehicle {
 
     /**
-     * Value representing how trimmed the Volvo240 car is
+     * Value representing how trimmed the vehicles.Volvo240 car is
      */
     private final static double trimFactor = 1.25;
 
     /**
-     * Creates Volvo240
+     * Creates vehicles.Volvo240
      */
     public Volvo240(){
-        super(4, Color.black, 100, "Volvo240", 1200);
+        super(4, Color.black, 100, "vehicles.Volvo240", 1200);
     }
 
     /**

@@ -1,3 +1,5 @@
+package vehicleparts;
+
 public class DiscreteFlatbed implements Flatbed {
 
     private boolean isDeactivated = true;

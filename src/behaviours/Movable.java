@@ -1,3 +1,5 @@
+package behaviours;
+
 /**
  * An interface that defines how anything that is moveable should move
  */
