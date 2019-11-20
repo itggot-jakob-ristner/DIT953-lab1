@@ -1,6 +1,7 @@
 package vehicles;
 
 import behaviours.Movable;
+import behaviours.Transportable;
 import utilities.Direction;
 import utilities.Vector;
 
@@ -9,7 +10,7 @@ import java.awt.*;
 /**
  * A representation of a real life car
  */
-abstract class MotorisedVehicle implements Movable {
+abstract class MotorisedVehicle implements Movable, Transportable {
 
     /**
      * Number of doors on the car
@@ -215,6 +216,7 @@ abstract class MotorisedVehicle implements Movable {
         return direction;
     }
 
+    @Override
     public int getWeight() {
         return weight;
     }

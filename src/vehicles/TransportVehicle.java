@@ -1,5 +1,6 @@
 package vehicles;
 
+import behaviours.Transporter;
 import vehicleparts.Flatbed;
 
 import java.awt.*;
