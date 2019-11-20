@@ -10,7 +10,7 @@ import java.awt.*;
 /**
  * A representation of a real life car
  */
-abstract class MotorisedVehicle implements Movable, Transportable {
+public abstract class MotorisedVehicle implements Movable, Transportable {
 
     /**
      * Number of doors on the car
