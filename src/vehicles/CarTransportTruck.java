@@ -32,6 +32,8 @@ public class CarTransportTruck extends TransportVehicle implements Transporter<M
         if (!isFlatbedActivated()) return false;
         if (pos.distanceTo(vehicle.pos) < getPickupRange()) {
             if (cargo.size() < getMaxCargoSlots() && vehicle.getWeight() < getMaxCargoWeight()) {
+                if (vehicle.isBeingTransported) return false;
+                vehicle.setBeingTransported(true);
                 cargo.push(vehicle);
                 return true;
             }
@@ -61,6 +63,7 @@ public class CarTransportTruck extends TransportVehicle implements Transporter<M
         if (cargo.size() == 0) return null;
         MotorisedVehicle v = cargo.pop();
         v.setPos(pos.getX(), pos.getY() - 1);
+        v.setBeingTransported(false);
         return v;
     }
 

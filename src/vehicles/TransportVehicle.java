@@ -14,7 +14,7 @@ public abstract class TransportVehicle extends MotorisedVehicle {
 
     @Override
     public void startEngine() {
-        if (flatbed.isActivated()) return;
+        if (!flatbed.isDeactivated()) return;
         super.startEngine();
     }
 

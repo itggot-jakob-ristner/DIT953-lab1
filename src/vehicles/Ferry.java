@@ -35,6 +35,8 @@ public class Ferry extends TransportVehicle implements Transporter<MotorisedVehi
         if (!isFlatbedActivated()) return false;
         if (pos.distanceTo(vehicle.pos) < getPickupRange()) {
             if (cargo.size() < getMaxCargoSlots() && vehicle.getWeight() < getMaxCargoWeight()) {
+                if (vehicle.isBeingTransported) return false;
+                vehicle.setBeingTransported(true);
                 cargo.add(vehicle);
                 return true;
             }
@@ -48,6 +50,7 @@ public class Ferry extends TransportVehicle implements Transporter<MotorisedVehi
         if (cargo.size() == 0) return null;
         MotorisedVehicle v = cargo.remove();
         v.setPos(pos.getX(), pos.getY() - 10);
+        v.setBeingTransported(false);
         return v;
     }
 

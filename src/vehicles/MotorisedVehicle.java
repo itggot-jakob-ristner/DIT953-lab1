@@ -12,6 +12,8 @@ import java.awt.*;
  */
 public abstract class MotorisedVehicle implements Movable, Transportable {
 
+    boolean isBeingTransported = false;
+
     /**
      * Number of doors on the car
      */
@@ -227,5 +229,15 @@ public abstract class MotorisedVehicle implements Movable, Transportable {
 
     public void setDirection(Direction direction) {
         this.direction = direction;
+    }
+
+    @Override
+    public boolean isBeingTransported() {
+        return false;
+    }
+
+    @Override
+    public void setBeingTransported(boolean isBeingTransported) {
+        this.isBeingTransported = isBeingTransported;
     }
 }

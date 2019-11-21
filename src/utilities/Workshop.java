@@ -19,15 +19,20 @@ public class Workshop<V extends MotorisedVehicle> {
     }
 
     public boolean tryAddVehicle(V v) {
-        if (vehicles.size() >= MAX_VEHICLES) {
+        if (vehicles.size() >= MAX_VEHICLES && !v.isBeingTransported()) {
             return false;
         }
 
+        v.setBeingTransported(true);
         vehicles.add(v);
         return true;
     }
 
     public V tryRemoveVehicle() {
-        return vehicles.poll();
+        V v = vehicles.poll();
+        if (v != null) {
+            v.setBeingTransported(false);
+        }
+        return v;
     }
 }
