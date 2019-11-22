@@ -4,6 +4,8 @@ import behaviours.Transporter;
 import vehicleparts.Flatbed;
 
 import java.awt.*;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public abstract class TransportVehicle extends MotorisedVehicle {
     protected Flatbed flatbed;
@@ -16,6 +18,13 @@ public abstract class TransportVehicle extends MotorisedVehicle {
     public void startEngine() {
         if (!flatbed.isDeactivated()) return;
         super.startEngine();
+        Timer t = new Timer();
+        t.schedule(new TimerTask() {
+            @Override
+            public void run() {
+
+            }
+        }, 85);
     }
 
     public void activateFlatbed() {
