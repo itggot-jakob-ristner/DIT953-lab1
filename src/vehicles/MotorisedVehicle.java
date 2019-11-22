@@ -114,7 +114,7 @@ public abstract class MotorisedVehicle implements Movable, Transportable {
     /**
      * Stops the engine of the car
      */
-    private void stopEngine() {
+     public void stopEngine() {
         currentSpeed = 0;
     }
 

@@ -43,6 +43,25 @@ public class CarController {
         cc.timer.start();
     }
 
+    void startAll() {
+        for (MotorisedVehicle v : cars) {
+            v.startEngine();
+        }
+    }
+
+    void stopAll() {
+        for (MotorisedVehicle v : cars) {
+            v.stopEngine();
+        }
+    }
+
+    void brakeAll(double amount) {
+        double brake = amount / 100;
+        for (MotorisedVehicle v : cars) {
+            v.brake(brake);
+        }
+    }
+
     /* Each step the TimerListener moves all the cars in the list and tells the
     * view to update its images. Change this method to your needs.
     * */
