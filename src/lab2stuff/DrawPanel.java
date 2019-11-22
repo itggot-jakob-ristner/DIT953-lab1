@@ -1,5 +1,11 @@
 package lab2stuff;
 
+import utilities.ScreenElement;
+import utilities.ScreenElementsManager;
+import vehicles.Saab95;
+import vehicles.Scania;
+import vehicles.Volvo240;
+
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -8,7 +14,7 @@ import javax.swing.*;
 
 // This panel represent the animated part of the view with the car images.
 
-public class DrawPanel extends JPanel{
+public class DrawPanel extends JPanel {
 
     // Just a single image, TODO: Generalize
     BufferedImage volvoImage;
@@ -34,7 +40,11 @@ public class DrawPanel extends JPanel{
 
             // Rememember to rightclick src New -> Package -> name: pics -> MOVE *.jpg to pics.
             // if you are starting in IntelliJ.
-            volvoImage = ImageIO.read(DrawPanel.class.getResourceAsStream("/pics/Volvo240.jpg"));
+            String root = "/pics/";
+
+            ScreenElementsManager.addElement(Volvo240.class, new ScreenElement(root + "Volvo240.jpg"));
+            ScreenElementsManager.addElement(Saab95.class, new ScreenElement(root + "Saab95.jpg"));
+            ScreenElementsManager.addElement(Scania.class, new ScreenElement(root + "Scania.jpg"));
         } catch (IOException ex) {
             ex.printStackTrace();
         }
@@ -46,6 +56,6 @@ public class DrawPanel extends JPanel{
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.drawImage(volvoImage, volvoPoint.x, volvoPoint.y, null); // see javadoc for more info on the parameters
+        g.drawImage(ScreenElementsManager.getScreenElement(Volvo240.class).getImage(), volvoPoint.x, volvoPoint.y, null); // see javadoc for more info on the parameters
     }
 }
