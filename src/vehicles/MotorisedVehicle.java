@@ -47,7 +47,7 @@ public abstract class MotorisedVehicle implements Movable, Transportable {
     /**
      * The direction of the car represented by an enum
      */
-    private Direction direction = Direction.UP;
+    private Direction direction = Direction.RIGHT;
 
     private int weight;
 

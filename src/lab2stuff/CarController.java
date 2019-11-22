@@ -1,5 +1,6 @@
 package lab2stuff;
 
+import utilities.CollisionDetector;
 import vehicles.MotorisedVehicle;
 import vehicles.Volvo240;
 
@@ -43,6 +44,25 @@ public class CarController {
         cc.timer.start();
     }
 
+    /* Each step the TimerListener moves all the cars in the list and tells the
+     * view to update its images. Change this method to your needs.
+     * */
+    private class TimerListener implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+            for (MotorisedVehicle car : cars) {
+                car.move();
+                if (CollisionDetector.isOutside())
+                    break;
+
+                int x = (int) Math.round(car.getX());
+                int y = (int) Math.round(car.getY());
+                frame.drawPanel.moveit(x, y);
+                // repaint() calls the paintComponent method of the panel
+                frame.drawPanel.repaint();
+            }
+        }
+    }
+
     void startAll() {
         for (MotorisedVehicle v : cars) {
             v.startEngine();
@@ -55,6 +75,7 @@ public class CarController {
         }
     }
 
+    /** Calls the break method for each car once */
     void brakeAll(double amount) {
         double brake = amount / 100;
         for (MotorisedVehicle v : cars) {
@@ -62,23 +83,7 @@ public class CarController {
         }
     }
 
-    /* Each step the TimerListener moves all the cars in the list and tells the
-    * view to update its images. Change this method to your needs.
-    * */
-    private class TimerListener implements ActionListener {
-        public void actionPerformed(ActionEvent e) {
-            for (MotorisedVehicle car : cars) {
-                car.move();
-                int x = (int) Math.round(car.getX());
-                int y = (int) Math.round(car.getY());
-                frame.drawPanel.moveit(x, y);
-                // repaint() calls the paintComponent method of the panel
-                frame.drawPanel.repaint();
-            }
-        }
-    }
-
-    // Calls the gas method for each car once
+    /** Calls the gas method for each car once */
     void gas(int amount) {
         double gas = ((double) amount) / 100;
         for (MotorisedVehicle car : cars) {
