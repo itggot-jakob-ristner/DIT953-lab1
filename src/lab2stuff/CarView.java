@@ -1,5 +1,7 @@
 package lab2stuff;
 
+import utilities.Vector;
+
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
@@ -16,13 +18,13 @@ import java.awt.event.ActionListener;
  **/
 
 public class CarView extends JFrame{
-    private static final int X = 800;
-    private static final int Y = 800;
 
+    private final int X;
+    private final int Y;
     // The controller member
     CarController carC;
 
-    DrawPanel drawPanel = new DrawPanel(X, Y-240);
+    DrawPanel drawPanel;
 
     JPanel controlPanel = new JPanel();
 
@@ -42,7 +44,10 @@ public class CarView extends JFrame{
     JButton stopButton = new JButton("Stop all cars");
 
     // Constructor
-    public CarView(String framename, CarController cc){
+    public CarView(String framename, CarController cc, Vector worldSize){
+        X = (int) worldSize.getX();
+        Y = (int) worldSize.getY();
+        this.drawPanel = new DrawPanel(X, Y-240);
         this.carC = cc;
         initComponents(framename);
     }

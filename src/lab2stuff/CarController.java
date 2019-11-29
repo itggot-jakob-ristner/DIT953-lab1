@@ -1,6 +1,9 @@
 package lab2stuff;
 
 import utilities.CollisionDetector;
+import utilities.Direction;
+import utilities.ScreenElementsManager;
+import utilities.Vector;
 import vehicles.MotorisedVehicle;
 import vehicles.Volvo240;
 
@@ -16,6 +19,7 @@ import java.util.ArrayList;
  */
 
 public class CarController {
+    public static final Vector WORLD_SIZE = new Vector(800, 800);
     // member fields:
 
     // The delay (ms) corresponds to 20 updates a sec (hz)
@@ -38,7 +42,7 @@ public class CarController {
         cc.cars.add(new Volvo240());
 
         // Start a new view and send a reference of self
-        cc.frame = new CarView("CarSim 1.0", cc);
+        cc.frame = new CarView("CarSim 1.0", cc, WORLD_SIZE);
 
         // Start the timer
         cc.timer.start();
@@ -51,8 +55,10 @@ public class CarController {
         public void actionPerformed(ActionEvent e) {
             for (MotorisedVehicle car : cars) {
                 car.move();
-                if (CollisionDetector.isOutside())
-                    break;
+
+                if (CollisionDetector.isOutside(car.getPos(), ScreenElementsManager.getScreenElement(car.getClass()).getSize(), WORLD_SIZE)) {
+                    car.setDirection(Direction.invertDirection(car.getDirection()));
+                }
 
                 int x = (int) Math.round(car.getX());
                 int y = (int) Math.round(car.getY());

@@ -12,9 +12,7 @@ public enum Direction {
      * @return a new direction which is the input direction rotated to the left
      */
     public static Direction turnLeft(Direction direction) {
-        Direction[] directions = Direction.values();
-        int directionNum = (direction.ordinal()+1) % directions.length;
-        return directions[directionNum];
+        return turnByAmount(direction, 1);
     }
 
     /**
@@ -23,8 +21,16 @@ public enum Direction {
      * @return a new direction which is the input direction rotated to the right
      */
     public static Direction turnRight(Direction direction) {
+        return turnByAmount(direction, 3);
+    }
+
+    public static Direction invertDirection(Direction direction) {
+        return turnByAmount(direction, 2);
+    }
+
+    private static Direction turnByAmount(Direction current, int amount) {
         Direction[] directions = Direction.values();
-        int directionNum = (direction.ordinal() - 1 + directions.length) % directions.length;
+        int directionNum = (current.ordinal() + amount) % directions.length;
         return directions[directionNum];
     }
 }

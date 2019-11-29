@@ -240,4 +240,8 @@ public abstract class MotorisedVehicle implements Movable, Transportable {
     public void setBeingTransported(boolean isBeingTransported) {
         this.isBeingTransported = isBeingTransported;
     }
+
+    public Vector getPos() {
+        return this.pos;
+    }
 }
