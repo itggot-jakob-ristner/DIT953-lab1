@@ -5,10 +5,7 @@ import utilities.Direction;
 import utilities.ScreenElementsManager;
 import utilities.Vector;
 import utilities.Vector;
-import vehicles.MotorisedVehicle;
-import vehicles.Saab95;
-import vehicles.Scania;
-import vehicles.Volvo240;
+import vehicles.*;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -52,6 +49,40 @@ public class CarController {
 
         // Start the timer
         cc.timer.start();
+    }
+
+    public void turboOn() {
+        for (MotorisedVehicle c : cars) {
+            if (c instanceof Saab95) {
+                ((Saab95) c).setTurboOn();
+            }
+        }
+    }
+
+    public void turboOff() {
+        for (MotorisedVehicle c : cars) {
+            if (c instanceof Saab95) {
+                ((Saab95) c).setTurboOff();
+            }
+        }
+    }
+
+    public void lowerBeds() {
+        for (MotorisedVehicle c : cars) {
+            if (c instanceof Scania) {
+                ((Scania) c).deActivateFlatbed();
+                System.out.println(((Scania) c).isFlatbedDeactivated());
+            }
+        }
+    }
+
+    public void liftBeds() {
+        for (MotorisedVehicle c : cars) {
+            if (c instanceof Scania) {
+                ((Scania) c).activateFlatbed();
+                System.out.println(((Scania) c).isFlatbedDeactivated());
+            }
+        }
     }
 
     /* Each step the TimerListener moves all the cars in the list and tells the
