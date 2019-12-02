@@ -57,13 +57,13 @@ public abstract class MotorisedVehicle implements Movable, Transportable {
      * @param enginePower The power of the engine in the car
      * @param modelName The name of the model
      */
-    public MotorisedVehicle(int nrDoors, Color color, double enginePower, String modelName, int weight){
+    public MotorisedVehicle(int nrDoors, Color color, double enginePower, String modelName, int weight, Vector pos){
         this.nrDoors = nrDoors;
         this.color = color;
         this.enginePower = enginePower;
         this.modelName = modelName;
         this.weight = weight;
-        pos = new Vector();
+        this.pos = pos;
         stopEngine();
     }
 
@@ -233,7 +233,7 @@ public abstract class MotorisedVehicle implements Movable, Transportable {
 
     @Override
     public boolean isBeingTransported() {
-        return false;
+        return isBeingTransported;
     }
 
     @Override

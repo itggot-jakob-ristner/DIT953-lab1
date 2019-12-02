@@ -2,6 +2,7 @@ package lab2stuff;
 
 import utilities.ScreenElement;
 import utilities.ScreenElementsManager;
+import vehicles.MotorisedVehicle;
 import vehicles.Saab95;
 import vehicles.Scania;
 import vehicles.Volvo240;
@@ -9,6 +10,7 @@ import vehicles.Volvo240;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.List;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
@@ -16,19 +18,12 @@ import javax.swing.*;
 
 public class DrawPanel extends JPanel {
 
-    // Just a single image, TODO: Generalize
-    BufferedImage volvoImage;
-    // To keep track of a singel cars position
-    Point volvoPoint = new Point();
+    List<MotorisedVehicle> motorisedVehicles;
 
-    // TODO: Make this genereal for all cars
-    void moveit(int x, int y){
-        volvoPoint.x = x;
-        volvoPoint.y = y;
-    }
 
     // Initializes the panel and reads the images
-    public DrawPanel(int x, int y) {
+    public DrawPanel(int x, int y, List<MotorisedVehicle> motorisedVehicles) {
+        this.motorisedVehicles = motorisedVehicles;
         this.setDoubleBuffered(true);
         this.setPreferredSize(new Dimension(x, y));
         this.setBackground(Color.green);
@@ -56,6 +51,10 @@ public class DrawPanel extends JPanel {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.drawImage(ScreenElementsManager.getScreenElement(Volvo240.class).getImage(), volvoPoint.x, volvoPoint.y, null); // see javadoc for more info on the parameters
+        for (MotorisedVehicle v : motorisedVehicles) {
+            int x = (int) v.getX();
+            int y = (int) v.getY();
+            g.drawImage(ScreenElementsManager.getScreenElement(v.getClass()).getImage(), x, y, null); // see javadoc for more info on the parameters
+        }
     }
 }

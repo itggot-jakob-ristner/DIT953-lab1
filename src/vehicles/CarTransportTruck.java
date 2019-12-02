@@ -1,10 +1,12 @@
 package vehicles;
 
 import behaviours.Transporter;
+import utilities.Vector;
 import vehicleparts.DiscreteFlatbed;
 
 import java.awt.*;
-import java.util.*;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 /**
  * A class representing a truck that can transport other motorised vehicles
@@ -14,7 +16,11 @@ public class CarTransportTruck extends TransportVehicle implements Transporter<M
     private Deque<MotorisedVehicle> cargo = new ArrayDeque<>();
 
     public CarTransportTruck() {
-        super(2, Color.yellow, 50, "Lång tradare", 12000, new DiscreteFlatbed());
+        this(new Vector());
+    }
+
+    public CarTransportTruck(Vector pos) {
+        super(2, Color.yellow, 50, "Lång tradare", 12000, new DiscreteFlatbed(), pos);
     }
 
     @Override

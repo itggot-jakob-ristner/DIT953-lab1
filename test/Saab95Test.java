@@ -42,7 +42,7 @@ public class Saab95Test {
         Saab95 s = new Saab95();
         double x = s.getX();
         double y = s.getY();
-        assertEquals(s.getDirection(), Direction.UP);
+        assertEquals(s.getDirection(), Direction.RIGHT);
         s.startEngine();
         s.move();
         assertTrue(s.getY() < y);

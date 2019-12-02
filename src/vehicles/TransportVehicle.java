@@ -1,6 +1,7 @@
 package vehicles;
 
 import behaviours.Transporter;
+import utilities.Vector;
 import vehicleparts.Flatbed;
 
 import java.awt.*;
@@ -9,8 +10,8 @@ import java.util.TimerTask;
 
 public abstract class TransportVehicle extends MotorisedVehicle {
     protected Flatbed flatbed;
-    public TransportVehicle(int nrDoors, Color color, double enginePower, String modelName, int weight, Flatbed flatbed) {
-        super(nrDoors, color, enginePower, modelName, weight);
+    public TransportVehicle(int nrDoors, Color color, double enginePower, String modelName, int weight, Flatbed flatbed, Vector pos) {
+        super(nrDoors, color, enginePower, modelName, weight, pos);
         this.flatbed = flatbed;
     }
 

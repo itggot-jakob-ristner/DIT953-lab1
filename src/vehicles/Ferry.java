@@ -1,6 +1,7 @@
 package vehicles;
 
 import behaviours.Transporter;
+import utilities.Vector;
 import vehicleparts.DiscreteFlatbed;
 import vehicleparts.Flatbed;
 
@@ -18,7 +19,11 @@ public class Ferry extends TransportVehicle implements Transporter<MotorisedVehi
     private Queue<MotorisedVehicle> cargo = new ArrayDeque<>();
 
     public Ferry() {
-        super(1, Color.white, 50, "Stena", 1000000, new DiscreteFlatbed());
+        this(new Vector());
+    }
+
+    public Ferry(Vector pos) {
+        super(1, Color.white, 50, "Stena", 1000000, new DiscreteFlatbed(), pos);
     }
 
     @Override

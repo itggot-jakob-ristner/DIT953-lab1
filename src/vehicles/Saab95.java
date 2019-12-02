@@ -1,5 +1,7 @@
 package vehicles;
 
+import utilities.Vector;
+
 import java.awt.*;
 
 /**
@@ -16,7 +18,11 @@ public class Saab95 extends MotorisedVehicle {
      * The constructor for vehicles.Saab95
      */
     public Saab95() {
-        super(2, Color.red, 125, "vehicles.Saab95", 1000);
+        this(new Vector());
+    }
+
+    public Saab95(Vector pos) {
+        super(2, Color.red, 125, "vehicles.Saab95", 1000, pos);
 	    turboOn = false;
     }
 

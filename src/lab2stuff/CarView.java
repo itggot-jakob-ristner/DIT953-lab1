@@ -1,6 +1,7 @@
 package lab2stuff;
 
 import utilities.Vector;
+import vehicles.MotorisedVehicle;
 
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
@@ -8,6 +9,7 @@ import javax.swing.event.ChangeListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 
 /**
  * This class represents the full view of the MVC pattern of your car simulator.
@@ -44,10 +46,10 @@ public class CarView extends JFrame{
     JButton stopButton = new JButton("Stop all cars");
 
     // Constructor
-    public CarView(String framename, CarController cc, Vector worldSize){
+    public CarView(String framename, CarController cc, Vector worldSize, List<MotorisedVehicle> motorisedVehicles){
         X = (int) worldSize.getX();
         Y = (int) worldSize.getY();
-        this.drawPanel = new DrawPanel(X, Y-240);
+        this.drawPanel = new DrawPanel(X, Y-240, motorisedVehicles);
         this.carC = cc;
         initComponents(framename);
     }

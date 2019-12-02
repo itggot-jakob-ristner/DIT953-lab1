@@ -1,5 +1,7 @@
 package vehicles;
 
+import utilities.Vector;
+
 import java.awt.*;
 
 /**
@@ -18,8 +20,12 @@ public class Volvo240 extends MotorisedVehicle {
     /**
      * Creates vehicles.Volvo240
      */
-    public Volvo240(){
-        super(4, Color.black, 100, "vehicles.Volvo240", 1200);
+    public Volvo240() {
+        this(new Vector());
+    }
+
+    public Volvo240(Vector pos){
+        super(4, Color.black, 100, "vehicles.Volvo240", 1200, pos);
     }
 
     /**

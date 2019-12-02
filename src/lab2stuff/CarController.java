@@ -4,13 +4,17 @@ import utilities.CollisionDetector;
 import utilities.Direction;
 import utilities.ScreenElementsManager;
 import utilities.Vector;
+import utilities.Vector;
 import vehicles.MotorisedVehicle;
+import vehicles.Saab95;
+import vehicles.Scania;
 import vehicles.Volvo240;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.List;
 
 /*
 * This class represents the Controller part in the MVC pattern.
@@ -31,7 +35,7 @@ public class CarController {
     // The frame that represents this instance View of the MVC pattern
     CarView frame;
     // A list of cars, modify if needed
-    ArrayList<MotorisedVehicle> cars = new ArrayList<>();
+    List<MotorisedVehicle> cars = new ArrayList<>();
 
     //methods:
 
@@ -39,10 +43,12 @@ public class CarController {
         // Instance of this class
         CarController cc = new CarController();
 
-        cc.cars.add(new Volvo240());
+        cc.cars.add(new Volvo240(new Vector(0, 0)));
+        cc.cars.add(new Saab95(new Vector(0, 100)));
+        cc.cars.add(new Scania(new Vector(0, 200)));
 
         // Start a new view and send a reference of self
-        cc.frame = new CarView("CarSim 1.0", cc, WORLD_SIZE);
+        cc.frame = new CarView("CarSim 1.0", cc, WORLD_SIZE, cc.cars);
 
         // Start the timer
         cc.timer.start();
@@ -60,10 +66,6 @@ public class CarController {
                     car.setDirection(Direction.invertDirection(car.getDirection()));
                 }
 
-                int x = (int) Math.round(car.getX());
-                int y = (int) Math.round(car.getY());
-                frame.drawPanel.moveit(x, y);
-                // repaint() calls the paintComponent method of the panel
                 frame.drawPanel.repaint();
             }
         }
@@ -94,6 +96,7 @@ public class CarController {
         double gas = ((double) amount) / 100;
         for (MotorisedVehicle car : cars) {
             car.gas(gas);
+            System.out.println(car.getCurrentSpeed());
         }
     }
 }
