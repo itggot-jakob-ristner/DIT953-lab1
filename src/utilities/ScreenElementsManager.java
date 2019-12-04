@@ -17,6 +17,12 @@ public final class ScreenElementsManager {
     }
 
     public static ScreenElement getScreenElement(Class objectClass) {
-        return screenElements.get(objectClass);
+
+        ScreenElement s = screenElements.get(objectClass);
+
+        if (s == null) {
+            throw new IllegalArgumentException("No screen element exists for " + objectClass.getName());
+        }
+        return s;
     }
 }
