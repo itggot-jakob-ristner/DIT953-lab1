@@ -127,7 +127,6 @@ public class CarController {
         double gas = ((double) amount) / 100;
         for (MotorisedVehicle car : cars) {
             car.gas(gas);
-            System.out.println(car.getCurrentSpeed());
         }
     }
 }

@@ -45,19 +45,19 @@ public class Saab95Test {
         assertEquals(s.getDirection(), Direction.RIGHT);
         s.startEngine();
         s.move();
-        assertTrue(s.getY() < y);
+        assertTrue(s.getX() > x);
         s.turnLeft();
         s.move();
-        assertTrue(s.getX() < x);
+        assertTrue(s.getY() < y);
         s.turnRight();
-        s.turnRight();
-        s.move();
-        s.move();
-        assertTrue(s.getX() > x);
         s.turnRight();
         s.move();
         s.move();
         assertTrue(s.getY() > y);
+        s.turnRight();
+        s.move();
+        s.move();
+        assertTrue(s.getX() < x);
     }
 
     @Test
