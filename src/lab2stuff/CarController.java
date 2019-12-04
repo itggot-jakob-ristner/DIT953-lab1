@@ -67,7 +67,7 @@ public class CarController {
         }
     }
 
-    public void lowerBeds() {
+    public void deactivateBed() {
         for (MotorisedVehicle c : cars) {
             if (c instanceof Scania) {
                 ((Scania) c).deActivateFlatbed();
@@ -76,7 +76,7 @@ public class CarController {
         }
     }
 
-    public void liftBeds() {
+    public void activateBed() {
         for (MotorisedVehicle c : cars) {
             if (c instanceof Scania) {
                 ((Scania) c).activateFlatbed();

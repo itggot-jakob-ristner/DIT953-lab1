@@ -39,8 +39,8 @@ public class CarView extends JFrame{
     JButton brakeButton = new JButton("Brake");
     JButton turboOnButton = new JButton("Saab Turbo on");
     JButton turboOffButton = new JButton("Saab Turbo off");
-    JButton liftBedButton = new JButton("Scania Lift Bed");
-    JButton lowerBedButton = new JButton("Lower Lift Bed");
+    JButton activateBedButton = new JButton("Activate Bed");
+    JButton deactivateBedButton = new JButton("Deactivate Bed");
 
     JButton startButton = new JButton("Start all cars");
     JButton stopButton = new JButton("Stop all cars");
@@ -88,10 +88,10 @@ public class CarView extends JFrame{
 
         controlPanel.add(gasButton, 0);
         controlPanel.add(turboOnButton, 1);
-        controlPanel.add(liftBedButton, 2);
+        controlPanel.add(activateBedButton, 2);
         controlPanel.add(brakeButton, 3);
         controlPanel.add(turboOffButton, 4);
-        controlPanel.add(lowerBedButton, 5);
+        controlPanel.add(deactivateBedButton, 5);
         controlPanel.setPreferredSize(new Dimension((X/2)+4, 200));
         this.add(controlPanel);
         controlPanel.setBackground(Color.CYAN);
@@ -146,16 +146,16 @@ public class CarView extends JFrame{
                 carC.turboOff();
             }
         });
-        lowerBedButton.addActionListener(new ActionListener() {
+        deactivateBedButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                carC.lowerBeds();
+                carC.deactivateBed();
             }
         });
-        liftBedButton.addActionListener(new ActionListener() {
+        activateBedButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                carC.liftBeds();
+                carC.activateBed();
             }
         });
 

@@ -33,7 +33,7 @@ public class ContinuousFlatbed implements Flatbed {
 
     @Override
     public void deActivate() {
-        angle = Math.max(angle + ANGLE_SPEED, DEACTIVATION_ANGLE);
+        angle = Math.max(angle - ANGLE_SPEED, DEACTIVATION_ANGLE);
     }
 
     @Override
