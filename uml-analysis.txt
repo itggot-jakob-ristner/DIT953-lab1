@@ -1,3 +1,4 @@
+# 2
 Just nu har vi low cohesion och high coupling
 
 En vehicle factory skulle ta bort direkta beroenden på varje enskilt fordon.
@@ -9,4 +10,22 @@ Cirkulärt beroende mellan CarController och CarView är inte optimalt
 En Composite pattern för MotorisedVehicles skulle kunna användas för att få bort beroenden från CarController till diverse vehicle-klasser
 Då måste även läggas till ett interface för MotorisedVehicle.
 
-CarController är just nu beroende av Direction på grund av invertDirection, men om denna abstraheras till Movable interfacet försvinner beroendet.
+CarController är just nu beroende av Direction på grund av invertDirection(), men om denna abstraheras till Movable interfacet försvinner beroendet.
+
+
+# 4
+
+1. Skapa Vehicle interface
+2. Flytta beroenden av MotorisedVehicles i CarController, CarView m.m till Vehicle interface
+3. Skapa en VehicleFactory
+4. CarController ska använda nya factory istället för att instansiera själv
+5. Göra ett separat paket för model
+6. Skapa en Main-klass och flytta main från CarController
+7. Uppdatera Movable interface
+
+
+
+2 och 3 kan göras parallellt
+6 kan göras parallellt med allt (eventuellt inte 4)
+7 kan göras parallellt med allt utom 1
+
