@@ -1,0 +1,12 @@
+Just nu har vi low cohesion och high coupling
+
+En vehicle factory skulle ta bort direkta beroenden på varje enskilt fordon.
+
+CarController bör inte vara beroende på DrawPanel eftersom den redan har en relation till CarView som har en relation till DrawPanel
+
+Cirkulärt beroende mellan CarController och CarView är inte optimalt
+
+En Composite pattern för MotorisedVehicles skulle kunna användas för att få bort beroenden från CarController till diverse vehicle-klasser
+Då måste även läggas till ett interface för MotorisedVehicle.
+
+CarController är just nu beroende av Direction på grund av invertDirection, men om denna abstraheras till Movable interfacet försvinner beroendet.
