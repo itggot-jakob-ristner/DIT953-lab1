@@ -22,6 +22,7 @@ CarController är just nu beroende av Direction på grund av invertDirection(), 
 5. Göra ett separat paket för model
 6. Skapa en Main-klass och flytta main från CarController
 7. Uppdatera Movable interface
+8. Använd Factory i Drawpanel istället för att referera konkreta bilar
 
 
 
