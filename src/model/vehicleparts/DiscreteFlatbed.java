@@ -1,4 +1,4 @@
-package vehicleparts;
+package model.vehicleparts;
 
 public class DiscreteFlatbed implements Flatbed {
 

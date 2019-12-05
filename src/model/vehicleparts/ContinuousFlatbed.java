@@ -1,4 +1,4 @@
-package vehicleparts;
+package model.vehicleparts;
 
 public class ContinuousFlatbed implements Flatbed {
 

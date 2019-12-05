@@ -1,9 +1,7 @@
-package vehicles;
+package model.vehicles;
 
-import behaviours.Movable;
-import behaviours.Transportable;
-import utilities.Direction;
-import utilities.Vector;
+import model.utilities.Direction;
+import model.utilities.Vector;
 
 import java.awt.*;
 

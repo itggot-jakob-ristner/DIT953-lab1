@@ -1,8 +1,7 @@
-package vehicles;
+package model.vehicles;
 
-import behaviours.Transporter;
-import utilities.Vector;
-import vehicleparts.Flatbed;
+import model.utilities.Vector;
+import model.vehicleparts.Flatbed;
 
 import java.awt.*;
 import java.util.Timer;

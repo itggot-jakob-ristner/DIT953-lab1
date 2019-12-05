@@ -1,14 +1,11 @@
-package vehicles;
+package model.vehicles;
 
-import behaviours.Transporter;
-import utilities.Vector;
-import vehicleparts.DiscreteFlatbed;
-import vehicleparts.Flatbed;
+import model.behaviours.Transporter;
+import model.utilities.Vector;
+import model.vehicleparts.DiscreteFlatbed;
 
 import java.awt.*;
 import java.util.ArrayDeque;
-import java.util.Deque;
-import java.util.LinkedList;
 import java.util.Queue;
 
 /**

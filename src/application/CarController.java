@@ -1,12 +1,11 @@
-package lab2stuff;
+package application;
 
-import utilities.CollisionDetector;
-import utilities.ScreenElementsManager;
-import utilities.Vector;
-import vehicles.Saab95;
-import vehicles.Scania;
-import vehicles.Vehicle;
-import vehicles.VehicleFactory;
+import model.utilities.CollisionDetector;
+import model.utilities.Vector;
+import model.vehicles.Saab95;
+import model.vehicles.Scania;
+import model.vehicles.Vehicle;
+import model.vehicles.VehicleFactory;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;

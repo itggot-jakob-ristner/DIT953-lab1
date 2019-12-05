@@ -1,4 +1,4 @@
-package utilities;
+package model.utilities;
 
 /**
  * A 2d vector represented by doubles
@@ -25,7 +25,7 @@ public class Vector {
     }
 
     /**
-     * Constructor without parameters for utilities.Vector
+     * Constructor without parameters for model.utilities.Vector
      */
     public Vector() {
         x = 0;

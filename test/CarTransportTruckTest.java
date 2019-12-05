@@ -1,6 +1,6 @@
 import org.junit.jupiter.api.Test;
-import vehicles.CarTransportTruck;
-import vehicles.Volvo240;
+import model.vehicles.CarTransportTruck;
+import model.vehicles.Volvo240;
 
 import static junit.framework.TestCase.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertFalse;

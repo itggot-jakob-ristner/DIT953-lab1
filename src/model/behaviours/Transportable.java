@@ -1,4 +1,4 @@
-package behaviours;
+package model.behaviours;
 
 public interface Transportable {
 

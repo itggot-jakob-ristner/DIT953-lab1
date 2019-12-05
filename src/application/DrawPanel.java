@@ -1,15 +1,10 @@
-package lab2stuff;
+package application;
 
-import utilities.ScreenElement;
-import utilities.ScreenElementsManager;
-import utilities.Vector;
-import vehicles.*;
+import model.vehicles.*;
 
 import java.awt.*;
-import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.List;
-import javax.imageio.ImageIO;
 import javax.swing.*;
 
 // This panel represent the animated part of the view with the car images.

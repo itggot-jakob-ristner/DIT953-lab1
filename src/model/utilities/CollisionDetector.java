@@ -1,4 +1,4 @@
-package utilities;
+package model.utilities;
 
 public final class CollisionDetector {
 

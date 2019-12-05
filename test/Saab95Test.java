@@ -1,6 +1,6 @@
 import org.junit.jupiter.api.Test;
-import utilities.Direction;
-import vehicles.Saab95;
+import model.utilities.Direction;
+import model.vehicles.Saab95;
 
 import java.awt.*;
 

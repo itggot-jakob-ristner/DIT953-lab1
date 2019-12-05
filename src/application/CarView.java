@@ -1,7 +1,7 @@
-package lab2stuff;
+package application;
 
-import utilities.Vector;
-import vehicles.Vehicle;
+import model.utilities.Vector;
+import model.vehicles.Vehicle;
 
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;

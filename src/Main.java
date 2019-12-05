@@ -1,4 +1,4 @@
-import lab2stuff.CarController;
+import application.CarController;
 
 public class Main {
 

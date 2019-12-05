@@ -1,6 +1,6 @@
-package vehicles;
+package model.vehicles;
 
-import utilities.Vector;
+import model.utilities.Vector;
 
 public final class VehicleFactory {
 

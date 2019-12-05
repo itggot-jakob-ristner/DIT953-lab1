@@ -1,5 +1,5 @@
 import org.junit.jupiter.api.Test;
-import vehicles.Volvo240;
+import model.vehicles.Volvo240;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;

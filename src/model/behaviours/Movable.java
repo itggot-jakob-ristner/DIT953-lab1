@@ -1,7 +1,6 @@
-package behaviours;
+package model.behaviours;
 
-import utilities.Direction;
-import utilities.Vector;
+import model.utilities.Vector;
 
 /**
  * An interface that defines how anything that is moveable should move

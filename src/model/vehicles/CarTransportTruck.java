@@ -1,15 +1,15 @@
-package vehicles;
+package model.vehicles;
 
-import behaviours.Transporter;
-import utilities.Vector;
-import vehicleparts.DiscreteFlatbed;
+import model.behaviours.Transporter;
+import model.utilities.Vector;
+import model.vehicleparts.DiscreteFlatbed;
 
 import java.awt.*;
 import java.util.ArrayDeque;
 import java.util.Deque;
 
 /**
- * A class representing a truck that can transport other motorised vehicles
+ * A class representing a truck that can transport other motorised model.vehicles
  */
 public class CarTransportTruck extends TransportVehicle implements Transporter<MotorisedVehicle> {
 
@@ -48,7 +48,7 @@ public class CarTransportTruck extends TransportVehicle implements Transporter<M
     }
 
     /**
-     * Moves the truck and updates the position of all vehicles in the cargo to be the same as this truck.
+     * Moves the truck and updates the position of all model.vehicles in the cargo to be the same as this truck.
      */
     @Override
     public void move() {

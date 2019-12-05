@@ -1,7 +1,7 @@
-package vehicles;
+package model.vehicles;
 
-import behaviours.Movable;
-import behaviours.Transportable;
+import model.behaviours.Movable;
+import model.behaviours.Transportable;
 
 public interface Vehicle extends Movable, Transportable {
     void startEngine();

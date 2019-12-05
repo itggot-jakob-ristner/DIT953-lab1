@@ -1,6 +1,6 @@
-package utilities;
+package application;
 
-import lab2stuff.DrawPanel;
+import model.utilities.Vector;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;

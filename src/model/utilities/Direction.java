@@ -1,4 +1,4 @@
-package utilities;
+package model.utilities;
 
 /**
  * An enum representing the direction of something

@@ -1,13 +1,13 @@
-package utilities;
+package model.utilities;
 
 
-import vehicles.Vehicle;
+import model.vehicles.Vehicle;
 
 import java.util.ArrayDeque;
 import java.util.Queue;
 
 /**
- * A workshop that can add and remove vehicles
+ * A workshop that can add and remove model.vehicles
  * @param <V> The type of vehicle that this Workshop accepts
  */
 public class Workshop<V extends Vehicle> {
