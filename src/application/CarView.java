@@ -26,7 +26,7 @@ public class CarView extends JFrame{
     // The controller member
     CarController carC;
 
-    DrawPanel drawPanel;
+    private DrawPanel drawPanel;
 
     JPanel controlPanel = new JPanel();
 
@@ -52,6 +52,10 @@ public class CarView extends JFrame{
         this.drawPanel = new DrawPanel(X, Y-240, motorisedVehicles);
         this.carC = cc;
         initComponents(framename);
+    }
+
+    public void repaint() {
+        drawPanel.repaint();
     }
 
     // Sets everything in place and fits everything
