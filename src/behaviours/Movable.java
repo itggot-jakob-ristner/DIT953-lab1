@@ -21,4 +21,6 @@ public interface Movable {
      * All movalbe should be able to turn right
      */
     void turnRight();
+
+    void invertDirection();
 }

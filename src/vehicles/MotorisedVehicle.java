@@ -10,7 +10,7 @@ import java.awt.*;
 /**
  * A representation of a real life car
  */
-public abstract class MotorisedVehicle implements Movable, Transportable {
+public abstract class MotorisedVehicle implements Vehicle {
 
     boolean isBeingTransported = false;
 
@@ -72,6 +72,11 @@ public abstract class MotorisedVehicle implements Movable, Transportable {
      */
     public int getNrDoors(){
         return nrDoors;
+    }
+
+    @Override
+    public void invertDirection() {
+        direction = Direction.invertDirection(direction);
     }
 
     /**
