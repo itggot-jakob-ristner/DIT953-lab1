@@ -32,7 +32,7 @@ public class CarController {
     // The frame that represents this instance View of the MVC pattern
     CarView frame;
     // A list of cars, modify if needed
-    List<MotorisedVehicle> cars = new ArrayList<>();
+    List<Vehicle> cars = new ArrayList<>();
 
     //methods:
 
@@ -50,7 +50,7 @@ public class CarController {
     }
 
     public void turboOn() {
-        for (MotorisedVehicle c : cars) {
+        for (Vehicle c : cars) {
             if (c instanceof Saab95) {
                 ((Saab95) c).setTurboOn();
             }
@@ -58,7 +58,7 @@ public class CarController {
     }
 
     public void turboOff() {
-        for (MotorisedVehicle c : cars) {
+        for (Vehicle c : cars) {
             if (c instanceof Saab95) {
                 ((Saab95) c).setTurboOff();
             }
@@ -66,7 +66,7 @@ public class CarController {
     }
 
     public void deactivateBed() {
-        for (MotorisedVehicle c : cars) {
+        for (Vehicle c : cars) {
             if (c instanceof Scania) {
                 ((Scania) c).deActivateFlatbed();
                 System.out.println(((Scania) c).isFlatbedDeactivated());
@@ -75,7 +75,7 @@ public class CarController {
     }
 
     public void activateBed() {
-        for (MotorisedVehicle c : cars) {
+        for (Vehicle c : cars) {
             if (c instanceof Scania) {
                 ((Scania) c).activateFlatbed();
                 System.out.println(((Scania) c).isFlatbedDeactivated());
@@ -88,11 +88,11 @@ public class CarController {
      * */
     private class TimerListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            for (MotorisedVehicle car : cars) {
-                car.move();
+            for (Vehicle v : cars) {
+                v.move();
 
-                if (CollisionDetector.isOutside(car.getPos(), ScreenElementsManager.getScreenElement(car.getClass()).getSize(), WORLD_SIZE)) {
-                    car.setDirection(Direction.invertDirection(car.getDirection()));
+                if (CollisionDetector.isOutside(v.getPos(), ScreenElementsManager.getScreenElement(v.getClass()).getSize(), WORLD_SIZE)) {
+                    v.invertDirection();
                 }
 
                 frame.drawPanel.repaint();
@@ -101,13 +101,13 @@ public class CarController {
     }
 
     void startAll() {
-        for (MotorisedVehicle v : cars) {
+        for (Vehicle v : cars) {
             v.startEngine();
         }
     }
 
     void stopAll() {
-        for (MotorisedVehicle v : cars) {
+        for (Vehicle v : cars) {
             v.stopEngine();
         }
     }
@@ -115,7 +115,7 @@ public class CarController {
     /** Calls the break method for each car once */
     void brakeAll(double amount) {
         double brake = amount / 100;
-        for (MotorisedVehicle v : cars) {
+        for (Vehicle v : cars) {
             v.brake(brake);
         }
     }
@@ -123,8 +123,8 @@ public class CarController {
     /** Calls the gas method for each car once */
     void gas(int amount) {
         double gas = ((double) amount) / 100;
-        for (MotorisedVehicle car : cars) {
-            car.gas(gas);
+        for (Vehicle v : cars) {
+            v.gas(gas);
         }
     }
 }

@@ -1,7 +1,7 @@
 package lab2stuff;
 
 import utilities.Vector;
-import vehicles.MotorisedVehicle;
+import vehicles.Vehicle;
 
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
@@ -46,7 +46,7 @@ public class CarView extends JFrame{
     JButton stopButton = new JButton("Stop all cars");
 
     // Constructor
-    public CarView(String framename, CarController cc, Vector worldSize, List<MotorisedVehicle> motorisedVehicles){
+    public CarView(String framename, CarController cc, Vector worldSize, List<Vehicle> motorisedVehicles){
         X = (int) worldSize.getX();
         Y = (int) worldSize.getY();
         this.drawPanel = new DrawPanel(X, Y-240, motorisedVehicles);

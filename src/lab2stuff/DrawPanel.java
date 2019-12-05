@@ -2,10 +2,7 @@ package lab2stuff;
 
 import utilities.ScreenElement;
 import utilities.ScreenElementsManager;
-import vehicles.MotorisedVehicle;
-import vehicles.Saab95;
-import vehicles.Scania;
-import vehicles.Volvo240;
+import vehicles.*;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -18,11 +15,11 @@ import javax.swing.*;
 
 public class DrawPanel extends JPanel {
 
-    List<MotorisedVehicle> motorisedVehicles;
+    List<Vehicle> motorisedVehicles;
 
 
     // Initializes the panel and reads the images
-    public DrawPanel(int x, int y, List<MotorisedVehicle> motorisedVehicles) {
+    public DrawPanel(int x, int y, List<Vehicle> motorisedVehicles) {
         this.motorisedVehicles = motorisedVehicles;
         this.setDoubleBuffered(true);
         this.setPreferredSize(new Dimension(x, y));
@@ -51,9 +48,9 @@ public class DrawPanel extends JPanel {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        for (MotorisedVehicle v : motorisedVehicles) {
-            int x = (int) v.getX();
-            int y = (int) v.getY();
+        for (Vehicle v : motorisedVehicles) {
+            int x = (int) v.getPos().getX();
+            int y = (int) v.getPos().getY();
             g.drawImage(ScreenElementsManager.getScreenElement(v.getClass()).getImage(), x, y, null); // see javadoc for more info on the parameters
         }
     }

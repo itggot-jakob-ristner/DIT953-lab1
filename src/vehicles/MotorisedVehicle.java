@@ -10,7 +10,7 @@ import java.awt.*;
 /**
  * A representation of a real life car
  */
-public abstract class MotorisedVehicle implements Vehicle {
+abstract class MotorisedVehicle implements Vehicle {
 
     boolean isBeingTransported = false;
 

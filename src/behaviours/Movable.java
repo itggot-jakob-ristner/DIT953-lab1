@@ -1,5 +1,8 @@
 package behaviours;
 
+import utilities.Direction;
+import utilities.Vector;
+
 /**
  * An interface that defines how anything that is moveable should move
  */
@@ -22,5 +25,9 @@ public interface Movable {
      */
     void turnRight();
 
+
+
     void invertDirection();
+
+    Vector getPos();
 }
