@@ -36,19 +36,17 @@ public class CarController {
 
     //methods:
 
-    public static void main(String[] args) {
-        // Instance of this class
-        CarController cc = new CarController();
 
-        cc.cars.add(new Volvo240(new Vector(0, 0)));
-        cc.cars.add(new Saab95(new Vector(0, 100)));
-        cc.cars.add(new Scania(new Vector(0, 200)));
+    public CarController() {
+        cars.add(new Volvo240(new Vector(0, 0)));
+        cars.add(new Saab95(new Vector(0, 100)));
+        cars.add(new Scania(new Vector(0, 200)));
 
         // Start a new view and send a reference of self
-        cc.frame = new CarView("CarSim 1.0", cc, WORLD_SIZE, cc.cars);
+        frame = new CarView("CarSim 1.0", this, WORLD_SIZE, cars);
 
         // Start the timer
-        cc.timer.start();
+        timer.start();
     }
 
     public void turboOn() {
