@@ -2,6 +2,7 @@ package lab2stuff;
 
 import utilities.ScreenElement;
 import utilities.ScreenElementsManager;
+import utilities.Vector;
 import vehicles.*;
 
 import java.awt.*;
@@ -34,9 +35,12 @@ public class DrawPanel extends JPanel {
             // if you are starting in IntelliJ.
             String root = "/pics/";
 
-            ScreenElementsManager.addElement(Volvo240.class, new ScreenElement(root + "Volvo240.jpg"));
-            ScreenElementsManager.addElement(Saab95.class, new ScreenElement(root + "Saab95.jpg"));
-            ScreenElementsManager.addElement(Scania.class, new ScreenElement(root + "Scania.jpg"));
+            Vehicle volvo = VehicleFactory.createVolvo240();
+            Vehicle saab = VehicleFactory.createSaab95();
+            Vehicle scania = VehicleFactory.createScania();
+            ScreenElementsManager.addElement(volvo.getClass(), new ScreenElement(root + "Volvo240.jpg"));
+            ScreenElementsManager.addElement(saab.getClass(), new ScreenElement(root + "Saab95.jpg"));
+            ScreenElementsManager.addElement(scania.getClass(), new ScreenElement(root + "Scania.jpg"));
         } catch (IOException ex) {
             ex.printStackTrace();
         }
@@ -44,7 +48,6 @@ public class DrawPanel extends JPanel {
     }
 
     // This method is called each time the panel updates/refreshes/repaints itself
-    // TODO: Change to suit your needs.
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
