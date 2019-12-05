@@ -1,11 +1,12 @@
 package lab2stuff;
 
 import utilities.CollisionDetector;
-import utilities.Direction;
 import utilities.ScreenElementsManager;
 import utilities.Vector;
-import utilities.Vector;
-import vehicles.*;
+import vehicles.Saab95;
+import vehicles.Scania;
+import vehicles.Vehicle;
+import vehicles.VehicleFactory;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -38,9 +39,9 @@ public class CarController {
 
 
     public CarController() {
-        cars.add(new Volvo240(new Vector(0, 0)));
-        cars.add(new Saab95(new Vector(0, 100)));
-        cars.add(new Scania(new Vector(0, 200)));
+        cars.add(VehicleFactory.createVolvo240(new Vector(0, 0)));
+        cars.add(VehicleFactory.createSaab95(new Vector(0, 100)));
+        cars.add(VehicleFactory.createScania(new Vector(0, 200)));
 
         // Start a new view and send a reference of self
         frame = new CarView("CarSim 1.0", this, WORLD_SIZE, cars);
