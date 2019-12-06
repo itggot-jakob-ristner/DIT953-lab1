@@ -1,4 +1,5 @@
-# 2
+# Lab2a
+## 2
 Just nu har vi low cohesion och high coupling
 
 En vehicle factory skulle ta bort direkta beroenden på varje enskilt fordon.
@@ -13,7 +14,7 @@ Då måste även läggas till ett interface för MotorisedVehicle.
 CarController är just nu beroende av Direction på grund av invertDirection(), men om denna abstraheras till Movable interfacet försvinner beroendet.
 
 
-# 4
+## 4
 
 1. Skapa Vehicle interface
 2. Flytta beroenden av MotorisedVehicles i CarController, CarView m.m till Vehicle interface
@@ -29,4 +30,28 @@ CarController är just nu beroende av Direction på grund av invertDirection(), 
 2 och 3 kan göras parallellt
 6 kan göras parallellt med allt (eventuellt inte 4)
 7 kan göras parallellt med allt utom 1
+
+# Lab2b
+## 2
+CarController är ingen controller. Allt den gör borde vara i Model.
+Collision detection beror på hur stora bilderna är. D.v.s. bilarna vet inte hur stora de är och kan inte veta när de har
+kolliderat med väggarna.
+Majoriteten av det som är i CarView borde vara i en Controller och inte i en View.  Att ta user input ska vara i Controller.
+WORLD_SIZE och listan av Vehicles borde vara i Model. Vi behöver alltså en klass i Model som har hand om tillståndet av hela
+Model. Lite som en Facade (klassen kan kanske heta Model)
+
+I den första refactorn minskade vi antalet dependencies till model (lower coupling)
+
+
+## 4
+Observer: Kommer användas avsiktligt i den nya designen för att Model ska kunna säga till View att uppdateras. Det gör att
+vi slipper en Circular Dependency.
+Factory Method: Vi använder en Factory för att skapa alla vehicles. Detta gör att vi slipper bero direkt på implementationerna
+(från view och model) av respektive fordon utan kan istället skapa dem dynamiskt. D.v.s. färre dependencies.
+State: State används inte. Vi skulle kunna använda det vid till exempel turboOn/Off i Saab men skillnaden på beteendet var
+väldigt litet (bara multiplicera med en annan siffra). Därför tycket vi det var onödigt och skulle bara leda till mer boilerplate
+kod.
+Composite: Composite används inte. Vi funderade på att använda det i Model till våran lista av fordon eftersom knapparna
+ska påverka alla fordon. Problemet är att viss funktionallitet bara finns för vissa bilar vilket betyder att vi inte skulle
+kunna implementera vehicle interfacet utan istället skulle behöva något med funktionerna från alla fordon.
 
