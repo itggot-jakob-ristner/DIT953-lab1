@@ -26,7 +26,10 @@ public class CarView extends JFrame{
     // The controller member
     CarController carC;
 
-    DrawPanel drawPanel;
+    private DrawPanel drawPanel;
+
+    JLabel statusLabel;
+    JPanel statusPanel = new JPanel();
 
     JPanel controlPanel = new JPanel();
 
@@ -54,6 +57,22 @@ public class CarView extends JFrame{
         initComponents(framename);
     }
 
+    public void repaint() {
+        drawPanel.repaint();
+
+        updateStatusLabel();
+    }
+
+    private void updateStatusLabel() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("<html>");
+        for (Vehicle v : carC.cars) {
+            sb.append(v).append( ": ").append(v.getSpeed()).append("<br>");
+        }
+        sb.append("</html>");
+        statusLabel.setText(sb.toString());
+    }
+
     // Sets everything in place and fits everything
     // TODO: Take a good look and make sure you understand how these methods and components work
     private void initComponents(String title) {
@@ -63,6 +82,10 @@ public class CarView extends JFrame{
         this.setLayout(new FlowLayout(FlowLayout.LEFT, 0, 0));
 
         this.add(drawPanel);
+
+
+        statusLabel = new JLabel("fjspasdsadasdafag");
+        statusPanel.add(statusLabel);
 
 
 
@@ -158,6 +181,9 @@ public class CarView extends JFrame{
                 carC.activateBed();
             }
         });
+
+
+        this.add(statusPanel);
 
         // Make the frame pack all it's components by respecting the sizes if possible.
         this.pack();

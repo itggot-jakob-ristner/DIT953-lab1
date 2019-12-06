@@ -22,7 +22,7 @@ public class Saab95 extends MotorisedVehicle {
     }
 
     public Saab95(Vector pos) {
-        super(2, Color.red, 125, "model.vehicles.Saab95", 1000, pos);
+        super(2, Color.red, 125, "Saab95", 1000, pos);
 	    turboOn = false;
     }
 

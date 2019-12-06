@@ -25,7 +25,7 @@ public class Volvo240 extends MotorisedVehicle {
     }
 
     public Volvo240(Vector pos){
-        super(4, Color.black, 100, "model.vehicles.Volvo240", 1200, pos);
+        super(4, Color.black, 100, "Volvo240", 1200, pos);
     }
 
     /**

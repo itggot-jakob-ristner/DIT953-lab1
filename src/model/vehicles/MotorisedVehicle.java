@@ -247,4 +247,14 @@ abstract class MotorisedVehicle implements Vehicle {
     public Vector getPos() {
         return this.pos;
     }
+
+    @Override
+    public double getSpeed() {
+        return currentSpeed;
+    }
+
+    @Override
+    public String toString() {
+        return modelName;
+    }
 }

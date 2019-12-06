@@ -9,4 +9,5 @@ public interface Vehicle extends Movable, Transportable {
     void gas(double amount);
     void brake(double amount);
     double speedFactor();
+    double getSpeed();
 }

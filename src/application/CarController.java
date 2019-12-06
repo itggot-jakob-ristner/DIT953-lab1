@@ -95,7 +95,7 @@ public class CarController {
                     v.invertDirection();
                 }
 
-                frame.drawPanel.repaint();
+                frame.repaint();
             }
         }
     }
