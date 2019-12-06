@@ -15,7 +15,7 @@ public class Scania extends TransportVehicle {
     }
 
     public Scania(Vector pos) {
-        super(2, Color.blue, 100, "model.vehicles.Scania", 6000, new ContinuousFlatbed(5), pos);
+        super(2, Color.blue, 100, "Scania", 6000, new ContinuousFlatbed(5), pos);
     }
 
     @Override

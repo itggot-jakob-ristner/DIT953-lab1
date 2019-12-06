@@ -28,6 +28,9 @@ public class CarView extends JFrame{
 
     private DrawPanel drawPanel;
 
+    JLabel statusLabel;
+    JPanel statusPanel = new JPanel();
+
     JPanel controlPanel = new JPanel();
 
     JPanel gasPanel = new JPanel();
@@ -56,6 +59,18 @@ public class CarView extends JFrame{
 
     public void repaint() {
         drawPanel.repaint();
+
+        updateStatusLabel();
+    }
+
+    private void updateStatusLabel() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("<html>");
+        for (Vehicle v : carC.cars) {
+            sb.append(v).append( ": ").append(v.getSpeed()).append("<br>");
+        }
+        sb.append("</html>");
+        statusLabel.setText(sb.toString());
     }
 
     // Sets everything in place and fits everything
@@ -67,6 +82,10 @@ public class CarView extends JFrame{
         this.setLayout(new FlowLayout(FlowLayout.LEFT, 0, 0));
 
         this.add(drawPanel);
+
+
+        statusLabel = new JLabel("fjspasdsadasdafag");
+        statusPanel.add(statusLabel);
 
 
 
@@ -162,6 +181,9 @@ public class CarView extends JFrame{
                 carC.activateBed();
             }
         });
+
+
+        this.add(statusPanel);
 
         // Make the frame pack all it's components by respecting the sizes if possible.
         this.pack();
