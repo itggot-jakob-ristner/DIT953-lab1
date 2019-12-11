@@ -1,5 +1,10 @@
 package application;
 
+import view.CanvasView;
+
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -10,18 +15,26 @@ public final class ScreenElementsManager {
 
     private ScreenElementsManager() { }
 
-    private static final Map<Class, ScreenElement> screenElements = new HashMap<>();
+    private static final Map<Class, BufferedImage> images = new HashMap<>();
 
-    public static void addElement(Class objectClass, ScreenElement screenElement) {
-        screenElements.put(objectClass, screenElement);
-        System.out.println(objectClass.getName());
-        System.out.println(screenElement.getSize().getX());
-        System.out.println(screenElement.getSize().getY());
+    public static void addElement(Class objectClass, BufferedImage image) {
+        images.put(objectClass, image);
     }
 
-    public static ScreenElement getScreenElement(Class objectClass) {
+    public static void addElement(Class objectClass, String imagePath) {
+        BufferedImage image = null;
+        try {
+            image = ImageIO.read(CanvasView.class.getResourceAsStream(imagePath));
+        } catch (IOException e) {
+            System.out.println("Image " + imagePath + " does not exist");
+            e.printStackTrace();
+        }
+        images.put(objectClass, image);
+    }
 
-        ScreenElement s = screenElements.get(objectClass);
+    public static BufferedImage getScreenElement(Class objectClass) {
+
+        BufferedImage s = images.get(objectClass);
 
         if (s == null) {
             throw new IllegalArgumentException("No screen element exists for " + objectClass.getName());
