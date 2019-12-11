@@ -32,19 +32,12 @@ public class CarView extends JFrame{
     JLabel statusLabel;
     JPanel statusPanel = new JPanel();
 
-    JPanel controlPanel = new JPanel();
 
-    JPanel gasPanel = new JPanel();
     JSpinner gasSpinner = new JSpinner();
     int gasAmount = 0;
     JLabel gasLabel = new JLabel("Amount of gas");
 
-    JButton gasButton = new JButton("Gas");
-    JButton brakeButton = new JButton("Brake");
-    JButton turboOnButton = new JButton("Saab Turbo on");
-    JButton turboOffButton = new JButton("Saab Turbo off");
-    JButton activateBedButton = new JButton("Activate Bed");
-    JButton deactivateBedButton = new JButton("Deactivate Bed");
+
 
     JButton startButton = new JButton("Start all cars");
     JButton stopButton = new JButton("Stop all cars");
@@ -90,26 +83,27 @@ public class CarView extends JFrame{
 
 
 
-        SpinnerModel spinnerModel =
-                new SpinnerNumberModel(0, //initial value
-                        0, //min
-                        100, //max
-                        1);//step
-        gasSpinner = new JSpinner(spinnerModel);
-        gasSpinner.addChangeListener(new ChangeListener() {
-            public void stateChanged(ChangeEvent e) {
-                gasAmount = (int) ((JSpinner)e.getSource()).getValue();
-            }
-        });
+        this.add(drawPanel);
 
-        gasPanel.setLayout(new BorderLayout());
-        gasPanel.add(gasLabel, BorderLayout.PAGE_START);
-        gasPanel.add(gasSpinner, BorderLayout.PAGE_END);
 
-        this.add(gasPanel);
+        statusLabel = new JLabel("fjspasdsadasdafag");
+        statusPanel.add(statusLabel);
+
+
+
+
+
+
+ JPanel controlPanel = new JPanel();
+
+        JButton gasButton = new JButton("Gas");
+        JButton brakeButton = new JButton("Brake");
+        JButton turboOnButton = new JButton("Saab Turbo on");
+        JButton turboOffButton = new JButton("Saab Turbo off");
+        JButton activateBedButton = new JButton("Activate Bed");
+        JButton deactivateBedButton = new JButton("Deactivate Bed");
 
         controlPanel.setLayout(new GridLayout(2,4));
-
         controlPanel.add(gasButton, 0);
         controlPanel.add(turboOnButton, 1);
         controlPanel.add(activateBedButton, 2);
@@ -117,9 +111,45 @@ public class CarView extends JFrame{
         controlPanel.add(turboOffButton, 4);
         controlPanel.add(deactivateBedButton, 5);
         controlPanel.setPreferredSize(new Dimension((X/2)+4, 200));
-        this.add(controlPanel);
         controlPanel.setBackground(Color.CYAN);
-
+        // This actionListener is for the gas button only
+        // TODO: Create more for each component as necessary
+        gasButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                model.gasAll(gasAmount);
+            }
+        });
+        brakeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                model.brakeAll(gasAmount);
+            }
+        });
+        turboOnButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                model.turboOn();
+            }
+        });
+        turboOffButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                model.turboOff();
+            }
+        });
+        deactivateBedButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                model.deactivateBed();
+            }
+        });
+        activateBedButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                model.activateBed();
+            }
+        });
 
         startButton.setBackground(Color.blue);
         startButton.setForeground(Color.green);
@@ -144,44 +174,113 @@ public class CarView extends JFrame{
             }
         });
 
+
+
+
+        this.add(statusPanel);
+
+        // Make the frame pack all it's components by respecting the sizes if possible.
+        this.pack();
+
+        // Get the computer screen resolution
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        // Center the frame
+        this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
+        // Make the frame visible
+        this.setVisible(true);
+        // Make sure the frame exits when "x" is pressed
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+}
+        });
+
+        gasPanel.setLayout(new BorderLayout());
+        gasPanel.add(gasLabel, BorderLayout.PAGE_START);
+        gasPanel.add(gasSpinner, BorderLayout.PAGE_END);
+
+        this.add(gasPanel);
+
+
+ JPanel controlPanel = new JPanel();
+
+        JButton gasButton = new JButton("Gas");
+        JButton brakeButton = new JButton("Brake");
+        JButton turboOnButton = new JButton("Saab Turbo on");
+        JButton turboOffButton = new JButton("Saab Turbo off");
+        JButton activateBedButton = new JButton("Activate Bed");
+        JButton deactivateBedButton = new JButton("Deactivate Bed");
+
+        controlPanel.setLayout(new GridLayout(2,4));
+        controlPanel.add(gasButton, 0);
+        controlPanel.add(turboOnButton, 1);
+        controlPanel.add(activateBedButton, 2);
+        controlPanel.add(brakeButton, 3);
+        controlPanel.add(turboOffButton, 4);
+        controlPanel.add(deactivateBedButton, 5);
+        controlPanel.setPreferredSize(new Dimension((X/2)+4, 200));
+        controlPanel.setBackground(Color.CYAN);
         // This actionListener is for the gas button only
         // TODO: Create more for each component as necessary
         gasButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                carC.gas(gasAmount);
+                model.gasAll(gasAmount);
             }
         });
         brakeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                carC.brakeAll(gasAmount);
+                model.brakeAll(gasAmount);
             }
         });
         turboOnButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                carC.turboOn();
+                model.turboOn();
             }
         });
         turboOffButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                carC.turboOff();
+                model.turboOff();
             }
         });
         deactivateBedButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                carC.deactivateBed();
+                model.deactivateBed();
             }
         });
         activateBedButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                carC.activateBed();
+                model.activateBed();
             }
         });
+
+        startButton.setBackground(Color.blue);
+        startButton.setForeground(Color.green);
+        startButton.setPreferredSize(new Dimension(X/5-15,200));
+        this.add(startButton);
+        startButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                carC.startAll();
+            }
+        });
+
+
+        stopButton.setBackground(Color.red);
+        stopButton.setForeground(Color.black);
+        stopButton.setPreferredSize(new Dimension(X/5-15,200));
+        this.add(stopButton);
+        stopButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                carC.stopAll();
+            }
+        });
+
+
 
 
         this.add(statusPanel);
