@@ -12,6 +12,11 @@ import java.util.List;
 public class Model {
     private static final Vector WORLD_SIZE = new Vector(800, 800);
     private List<Vehicle> vehicles = new ArrayList<>();
+
+    public void update() {
+
+    }
+
     public void turboOn() {
         for (Vehicle v : vehicles) {
             if (v instanceof Saab95) {
