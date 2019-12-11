@@ -12,8 +12,10 @@ import java.util.List;
 public class Model {
     private static final Vector WORLD_SIZE = new Vector(800, 800);
     private List<Vehicle> vehicles = new ArrayList<>();
+    private List<EventListener> listeners = new ArrayList<>();
 
     public void update() {
+        // TODO update stuff
 
     }
 
@@ -51,20 +53,20 @@ public class Model {
         }
     }
 
-    void startAll() {
+    public void startAll() {
         for (Vehicle v : vehicles) {
             v.startEngine();
         }
     }
 
-    void stopAll() {
+    public void stopAll() {
         for (Vehicle v : vehicles) {
             v.stopEngine();
         }
     }
 
     /** Calls the break method for each car once */
-    void brakeAll(double amount) {
+    public void brakeAll(double amount) {
         double brake = amount / 100;
         for (Vehicle v : vehicles) {
             v.brake(brake);
@@ -72,14 +74,21 @@ public class Model {
     }
 
     /** Calls the gas method for each car once */
-    void gasAll(int amount) {
+    public void gasAll(int amount) {
         double gas = ((double) amount) / 100;
         for (Vehicle v : vehicles) {
             v.gas(gas);
         }
     }
 
-    void addEventListener(EventListener eventListener) {
+    public void addEventListener(EventListener listener) {
+        listeners.add(listener);
     }
 
+    /**
+     * @return the worlds size using a defensive copy
+     */
+    public Vector getWorldSize() {
+        return new Vector(WORLD_SIZE);
+    }
 }

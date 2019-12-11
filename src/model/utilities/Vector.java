@@ -19,9 +19,13 @@ public class Vector {
      * @param x the x coordinate
      * @param y the y coordinate
      */
-    public Vector(int x, int y) {
+    public Vector(double x, double y) {
         this.x = x;
         this.y = y;
+    }
+
+    public Vector(Vector v) {
+        this(v.x, v.y);
     }
 
     /**
