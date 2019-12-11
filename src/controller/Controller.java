@@ -63,7 +63,7 @@ public class Controller {
         controlPanel.add(brakeButton, 3);
         controlPanel.add(turboOffButton, 4);
         controlPanel.add(deactivateBedButton, 5);
-        controlPanel.setPreferredSize(new Dimension((X/2)+4, 200));
+        controlPanel.setPreferredSize(new Dimension(((int) model.getWorldSize().getX()/2)+4, 200));
         controlPanel.setBackground(Color.CYAN);
         // This actionListener is for the gas button only
         // TODO: Create more for each component as necessary
@@ -119,7 +119,7 @@ public class Controller {
 
         stopButton.setBackground(Color.red);
         stopButton.setForeground(Color.black);
-        stopButton.setPreferredSize(new Dimension(X/5-15,200));
+        stopButton.setPreferredSize(new Dimension((int) model.getWorldSize().getX()/5-15,200));
         controlPanel.add(stopButton);
         stopButton.addActionListener(new ActionListener() {
             @Override
