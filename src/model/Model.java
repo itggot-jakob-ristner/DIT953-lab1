@@ -91,4 +91,8 @@ public class Model {
     public Vector getWorldSize() {
         return new Vector(WORLD_SIZE);
     }
+
+    public List<Vehicle> getVehicles() {
+        return vehicles;
+    }
 }
