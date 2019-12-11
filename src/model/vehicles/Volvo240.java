@@ -17,6 +17,7 @@ public class Volvo240 extends MotorisedVehicle {
      */
     private final static double trimFactor = 1.25;
 
+
     /**
      * Creates model.vehicles.Volvo240
      */

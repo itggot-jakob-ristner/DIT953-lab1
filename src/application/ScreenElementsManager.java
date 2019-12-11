@@ -14,6 +14,9 @@ public final class ScreenElementsManager {
 
     public static void addElement(Class objectClass, ScreenElement screenElement) {
         screenElements.put(objectClass, screenElement);
+        System.out.println(objectClass.getName());
+        System.out.println(screenElement.getSize().getX());
+        System.out.println(screenElement.getSize().getY());
     }
 
     public static ScreenElement getScreenElement(Class objectClass) {
