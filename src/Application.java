@@ -1,8 +1,13 @@
+import controller.Controller;
+import model.Model;
+import view.View;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Application {
+    private Model model;
 
     public static void main(String[] args) {
         Application app = new Application();
@@ -13,7 +18,9 @@ public class Application {
     private final int DELAY = 50;
 
     private Application() {
-
+        model = new Model();
+        View view = new View(model);
+        Controller controller = new Controller();
 
         new Timer(DELAY, new TimerListener()).start();
     }

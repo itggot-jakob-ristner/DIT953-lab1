@@ -63,7 +63,7 @@ TODO list:
 -2. Skapa MVC-A
 -3. Collision detection i model
 -4. Skapa Observer Pattern i M
-5. Namnbyte av DrawPanel
+-5. Namnbyte av DrawPanel
 6. Ändra ScreenElementsManager
 7. Fixa allt
 8. Application ska ha main loooooop
