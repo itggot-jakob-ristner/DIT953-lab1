@@ -91,9 +91,9 @@ public class CarController {
             for (Vehicle v : cars) {
                 v.move();
 
-                if (CollisionDetector.isOutside(v.getPos(), ScreenElementsManager.getScreenElement(v.getClass()).getSize(), WORLD_SIZE)) {
+                /*if (CollisionDetector.isOutside(v.getPos(), ScreenElementsManager.getScreenElement(v.getClass()).getSize(), WORLD_SIZE)) {
                     v.invertDirection();
-                }
+                }*/
 
                 frame.repaint();
             }

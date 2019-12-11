@@ -25,7 +25,7 @@ public class CanvasView extends JPanel {
 
         this.motorisedVehicles = model.getVehicles();
         this.setDoubleBuffered(true);
-        this.setPreferredSize(new Dimension((int) worldSize.getX(), (int) worldSize.getY()));
+        this.setPreferredSize(new Dimension((int) worldSize.getX(), (int) worldSize.getY() - 240));
         this.setBackground(Color.green);
 
         String root = "/pics/";
