@@ -55,3 +55,16 @@ Composite: Composite används inte. Vi funderade på att använda det i Model ti
 ska påverka alla fordon. Problemet är att viss funktionallitet bara finns för vissa bilar vilket betyder att vi inte skulle
 kunna implementera vehicle interfacet utan istället skulle behöva något med funktionerna från alla fordon.
 
+
+
+TODO list:
+
+1. Bilarna måste veta sin storlek
+2. Skapa MVC-A
+3. Collision detection i model
+4. Skapa Observer Pattern i M
+5. Namnbyte av DrawPanel
+6. Ändra ScreenElementsManager
+7. Fixa allt
+8. Application ska ha main loooooop
+9. Finished
