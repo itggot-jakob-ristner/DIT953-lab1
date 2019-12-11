@@ -2,6 +2,7 @@ package application;
 
 import model.utilities.Vector;
 import model.vehicles.Vehicle;
+import view.CanvasView;
 
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
@@ -26,7 +27,7 @@ public class CarView extends JFrame{
     // The controller member
     CarController carC;
 
-    private DrawPanel drawPanel;
+    private CanvasView drawPanel;
 
     JLabel statusLabel;
     JPanel statusPanel = new JPanel();
@@ -52,7 +53,7 @@ public class CarView extends JFrame{
     public CarView(String framename, CarController cc, Vector worldSize, List<Vehicle> motorisedVehicles){
         X = (int) worldSize.getX();
         Y = (int) worldSize.getY();
-        this.drawPanel = new DrawPanel(X, Y-240, motorisedVehicles);
+        //this.drawPanel = new CanvasView(X, Y-240, motorisedVehicles);
         this.carC = cc;
         initComponents(framename);
     }
