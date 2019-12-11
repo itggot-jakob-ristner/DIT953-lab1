@@ -1,6 +1,9 @@
 package model;
 
+import application.ScreenElementsManager;
+import model.event.Event;
 import model.event.EventListener;
+import model.utilities.CollisionDetector;
 import model.utilities.Vector;
 import model.vehicles.Saab95;
 import model.vehicles.Scania;
@@ -15,8 +18,15 @@ public class Model {
     private List<EventListener> listeners = new ArrayList<>();
 
     public void update() {
-        // TODO update stuff
-
+        for (Vehicle v : vehicles) {
+            v.move();
+            if (CollisionDetector.isOutside(v.getPos(), v.getSize(), WORLD_SIZE)) {
+                v.invertDirection();
+            }
+        }
+        for (EventListener l : listeners) {
+            l.onEvent(Event.REPAINT);
+        }
     }
 
     public void turboOn() {
