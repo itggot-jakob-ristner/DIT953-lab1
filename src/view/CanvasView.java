@@ -1,5 +1,9 @@
-package application;
+package view;
 
+import application.ScreenElement;
+import application.ScreenElementsManager;
+import model.Model;
+import model.utilities.Vector;
 import model.vehicles.*;
 
 import java.awt.*;
@@ -9,16 +13,18 @@ import javax.swing.*;
 
 // This panel represent the animated part of the view with the car images.
 
-public class DrawPanel extends JPanel {
+public class CanvasView extends JPanel {
 
-    List<Vehicle> motorisedVehicles;
+    private List<Vehicle> motorisedVehicles;
 
 
     // Initializes the panel and reads the images
-    public DrawPanel(int x, int y, List<Vehicle> motorisedVehicles) {
-        this.motorisedVehicles = motorisedVehicles;
+    public CanvasView(Model model) {
+        Vector worldSize = model.getWorldSize();
+
+        this.motorisedVehicles = model.getVehicles();
         this.setDoubleBuffered(true);
-        this.setPreferredSize(new Dimension(x, y));
+        this.setPreferredSize(new Dimension((int) worldSize.getX(), (int) worldSize.getY()));
         this.setBackground(Color.green);
         // Print an error message in case file is not found with a try/catch block
         try {

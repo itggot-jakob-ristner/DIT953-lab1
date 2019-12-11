@@ -1,6 +1,7 @@
 package application;
 
 import model.utilities.Vector;
+import view.CanvasView;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -15,7 +16,7 @@ public class ScreenElement {
     private Vector size;
 
     public ScreenElement(String imagePath) throws IOException {
-        this.image = ImageIO.read(DrawPanel.class.getResourceAsStream(imagePath));
+        this.image = ImageIO.read(CanvasView.class.getResourceAsStream(imagePath));
         this.size = new Vector(image.getWidth(), image.getHeight());
     }
 
