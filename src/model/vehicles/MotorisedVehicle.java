@@ -12,6 +12,8 @@ abstract class MotorisedVehicle implements Vehicle {
 
     boolean isBeingTransported = false;
 
+    private final static Vector SIZE = new Vector(100, 60);
+
     /**
      * Number of doors on the car
      */
@@ -196,6 +198,11 @@ abstract class MotorisedVehicle implements Vehicle {
      * @return Speed factor of the car
      */
     public abstract double speedFactor();
+
+    @Override
+    public Vector getSize() {
+        return SIZE;
+    }
 
     /**
      * Returns the x coordinate of the car
