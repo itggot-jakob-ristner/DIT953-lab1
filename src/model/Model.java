@@ -1,6 +1,5 @@
 package model;
 
-import application.ScreenElementsManager;
 import model.event.Event;
 import model.event.EventListener;
 import model.utilities.CollisionDetector;

@@ -1,16 +1,14 @@
 package view;
 
-import application.ScreenElement;
-import application.ScreenElementsManager;
 import model.Model;
 import model.utilities.Vector;
-import model.vehicles.*;
+import model.vehicles.Vehicle;
+import model.vehicles.VehicleFactory;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.IOException;
 import java.util.List;
-import javax.swing.*;
 
 // This panel represent the animated part of the view with the car images.
 
