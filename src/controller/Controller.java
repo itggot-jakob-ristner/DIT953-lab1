@@ -40,7 +40,6 @@ public class Controller {
         gasPanel.setLayout(new BorderLayout());
         gasPanel.add(gasLabel, BorderLayout.PAGE_START);
         gasPanel.add(gasSpinner, BorderLayout.PAGE_END);
-        gasAmount = (int) ((JSpinner)e.getSource()).getValue();
 
 
 
