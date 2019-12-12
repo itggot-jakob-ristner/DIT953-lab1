@@ -18,17 +18,18 @@ public class View extends JFrame implements EventListener {
         this.canvas = new CanvasView(model);
         this.status = new StatusView(model);
 
-        initializeFrame("CarSim 1.0", model.getWorldSize());
+        initializeFrame("CarSim 1.0", model.getWorldSize(), controller);
+        model.addEventListener(this);
     }
 
-    private void initializeFrame(String title, Vector size) {
+    private void initializeFrame(String title, Vector size, Controller controller) {
         this.setTitle(title);
         this.setPreferredSize(new Dimension((int) size.getX(), (int) size.getY()));
         this.setLayout(new FlowLayout(FlowLayout.LEFT, 0, 0));
 
         this.add(canvas);
-        //this.add(); Gas panel
-        //this.add(); Control panel
+        this.add(controller.getGasPanel());
+        this.add(controller.getControlPanel());
         this.add(status);
 
 

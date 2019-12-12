@@ -8,6 +8,7 @@ import model.utilities.Vector;
 import model.vehicles.Saab95;
 import model.vehicles.Scania;
 import model.vehicles.Vehicle;
+import model.vehicles.VehicleFactory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +17,12 @@ public class Model {
     private static final Vector WORLD_SIZE = new Vector(800, 800);
     private List<Vehicle> vehicles = new ArrayList<>();
     private List<EventListener> listeners = new ArrayList<>();
+
+    public Model() {
+        vehicles.add(VehicleFactory.createVolvo240(new Vector(0, 0)));
+        vehicles.add(VehicleFactory.createSaab95(new Vector(0, 100)));
+        vehicles.add(VehicleFactory.createScania(new Vector(0, 200)));
+    }
 
     public void update() {
         for (Vehicle v : vehicles) {

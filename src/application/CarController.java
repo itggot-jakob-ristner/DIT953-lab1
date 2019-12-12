@@ -1,3 +1,4 @@
+/*
 package application;
 
 import model.utilities.CollisionDetector;
@@ -13,11 +14,13 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
+*/
 /*
 * This class represents the Controller part in the MVC pattern.
 * It's responsibilities is to listen to the View and responds in a appropriate manner by
 * modifying the model state and the updating the view.
- */
+ *//*
+
 
 public class CarController {
     public static final Vector WORLD_SIZE = new Vector(800, 800);
@@ -83,17 +86,21 @@ public class CarController {
         }
     }
 
-    /* Each step the TimerListener moves all the cars in the list and tells the
+    */
+/* Each step the TimerListener moves all the cars in the list and tells the
      * view to update its images. Change this method to your needs.
-     * */
+     * *//*
+
     private class TimerListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             for (Vehicle v : cars) {
                 v.move();
 
-                /*if (CollisionDetector.isOutside(v.getPos(), ScreenElementsManager.getScreenElement(v.getClass()).getSize(), WORLD_SIZE)) {
+                */
+/*if (CollisionDetector.isOutside(v.getPos(), ScreenElementsManager.getScreenElement(v.getClass()).getSize(), WORLD_SIZE)) {
                     v.invertDirection();
-                }*/
+                }*//*
+
 
                 frame.repaint();
             }
@@ -112,7 +119,9 @@ public class CarController {
         }
     }
 
-    /** Calls the break method for each car once */
+    */
+/** Calls the break method for each car once *//*
+
     void brakeAll(double amount) {
         double brake = amount / 100;
         for (Vehicle v : cars) {
@@ -120,7 +129,9 @@ public class CarController {
         }
     }
 
-    /** Calls the gas method for each car once */
+    */
+/** Calls the gas method for each car once *//*
+
     void gas(int amount) {
         double gas = ((double) amount) / 100;
         for (Vehicle v : cars) {
@@ -128,3 +139,4 @@ public class CarController {
         }
     }
 }
+*/

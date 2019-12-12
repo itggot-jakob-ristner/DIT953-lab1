@@ -1,3 +1,4 @@
+/*
 package application;
 
 import model.utilities.Vector;
@@ -12,13 +13,15 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 
+*/
 /**
  * This class represents the full view of the MVC pattern of your car simulator.
  * It initializes with being center on the screen and attaching it's controller in it's state.
  * It communicates with the Controller by calling methods of it when an action fires of in
  * each of it's components.
  * TODO: Write more actionListeners and wire the rest of the buttons
- **/
+ **//*
+
 
 public class CarView extends JFrame{
 
@@ -297,4 +300,4 @@ public class CarView extends JFrame{
         // Make sure the frame exits when "x" is pressed
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
-}
+}*/
