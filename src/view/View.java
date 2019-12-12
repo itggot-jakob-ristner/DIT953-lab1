@@ -15,8 +15,6 @@ public class View extends JFrame implements EventListener {
     private CanvasView canvas;
     private StatusView status;
 
-    List<JPanel> components;
-
     public View(Model model, Controller controller) {
         this.canvas = new CanvasView(model);
         this.status = new StatusView(model);
@@ -33,6 +31,7 @@ public class View extends JFrame implements EventListener {
         this.add(canvas);
         this.add(controller.getGasPanel());
         this.add(controller.getControlPanel());
+        this.add(controller.getCarPushPopPanel());
         this.add(status);
 
 
@@ -61,10 +60,6 @@ public class View extends JFrame implements EventListener {
     private void repaintComponents() {
         canvas.repaint();
         status.repaint();
-    }
-
-    private void addComponent(JPanel component) {
-
     }
 
 }

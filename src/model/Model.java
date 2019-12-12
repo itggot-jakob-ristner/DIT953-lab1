@@ -9,11 +9,13 @@ import model.vehicles.Scania;
 import model.vehicles.Vehicle;
 import model.vehicles.VehicleFactory;
 
+import java.nio.BufferUnderflowException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Model {
     private static final Vector WORLD_SIZE = new Vector(800, 800);
+    private static final int MAX_VEHICLES = 10;
     private List<Vehicle> vehicles = new ArrayList<>();
     private List<EventListener> listeners = new ArrayList<>();
 
@@ -110,5 +112,32 @@ public class Model {
 
     public List<Vehicle> getVehicles() {
         return vehicles;
+    }
+
+    public void addVehicle(Vehicle vehicle) throws TooManyVehiclesException {
+        if (vehicles.size() >= MAX_VEHICLES) {
+            throw new TooManyVehiclesException("Cannot add more than " + MAX_VEHICLES + " vehicles");
+        }
+        vehicles.add(vehicle);
+    }
+
+    public void removeVehicle() throws NoVehiclesException {
+        try {
+            vehicles.remove(vehicles.size()-1);
+        } catch (IndexOutOfBoundsException e) {
+            throw new NoVehiclesException("No vehicles to remove");
+        }
+    }
+
+    public class NoVehiclesException extends Exception {
+        public NoVehiclesException(String s) {
+            super(s);
+        }
+    }
+
+    public class TooManyVehiclesException extends Exception {
+        public TooManyVehiclesException(String s) {
+            super(s);
+        }
     }
 }
