@@ -19,19 +19,19 @@ public class Application {
 
     private Application() {
         model = new Model();
-        View view = new View(model);
-        Controller controller = new Controller();
+        Controller controller = new Controller(model);
+        View view = new View(model, controller);
 
         new Timer(DELAY, new TimerListener()).start();
     }
 
-    /* Each step the TimerListener moves all the cars in the list and tells the
+    /**
+     * Each step the TimerListener moves all the cars in the list and tells the
      * view to update its images. Change this method to your needs.
      * */
     private class TimerListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-
-            // Update here
+            model.update();
         }
     }
 }
