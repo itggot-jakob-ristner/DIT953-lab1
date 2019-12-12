@@ -8,11 +8,14 @@ import model.utilities.Vector;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.List;
 
 public class View extends JFrame implements EventListener {
 
     private CanvasView canvas;
     private StatusView status;
+
+    List<JPanel> components;
 
     public View(Model model, Controller controller) {
         this.canvas = new CanvasView(model);
@@ -59,4 +62,9 @@ public class View extends JFrame implements EventListener {
         canvas.repaint();
         status.repaint();
     }
+
+    private void addComponent(JPanel component) {
+
+    }
+
 }

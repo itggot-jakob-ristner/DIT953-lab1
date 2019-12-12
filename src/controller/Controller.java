@@ -13,7 +13,7 @@ public class Controller {
     private Model model;
     private JPanel controlPanel;
     private JPanel gasPanel;
-    private int gasAmount;
+    private Integer gasAmount;
 
     public Controller(Model model) {
         this.model = model;
